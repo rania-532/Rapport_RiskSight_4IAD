@@ -156,23 +156,25 @@
 \begin{tikzpicture}[remember picture,overlay]
   \fill[primary]
     (current page.north west) rectangle
-    ([yshift=-3.8cm]current page.north east);
+    ([yshift=-3.2cm]current page.north east);
   \fill[secondary]
     (current page.south west) rectangle
     ([yshift=1.2cm]current page.south east);
 \end{tikzpicture}
 
-\vspace*{1.5cm}
-{\color{black}\large\textsc{\'Ecole Marocaine des Sciences de l 'Ing\'enieur}\\[0.2cm]
-{\color{black}\normalsize Fili\`ere : Ing\'enieurie Informatique et R\'eseau option: IA \& D --- 4\textsuperscript{e} Ann\'ee}}
+\vspace*{0.5cm}
+\begin{center}
+\includegraphics[width=10cm]{figures/emsi_logo}
+\end{center}
+\vspace*{0.3cm}
 
 \vfill
 
 \begin{tcolorbox}[enhanced,colback=white,colframe=primary,
   boxrule=2pt,arc=4pt,left=10pt,right=10pt,top=10pt,bottom=10pt]
   \centering
-  {\Huge\bfseries\color{primary} RiskSight}\\[0.3cm]
-  {\large\color{secondary}\rule{8cm}{1.5pt}}\\[0.3cm]
+ {\fontsize{32}{40}\selectfont\bfseries\color{primary} RiskSight}\\[0.4cm]
+  {\large\color{secondary}\rule{8cm}{1.5pt}}\\[0.8cm]
   {\large\color{darkgray}
     Plateforme SaaS de Scoring et de Pilotage\\
     du Risque Cr\'edit pour les Institutions\\
@@ -192,7 +194,7 @@
 \begin{minipage}{0.40\textwidth}
   \raggedleft
   \textbf{Encadrant :}\\
-  {[Nom du Professeur]}\\[0.4cm]
+  {Mr. Mouad Banane}\\[0.4cm]
   \textbf{Ann\'ee acad\'emique :}\\
   2025 -- 2026
 \end{minipage}
@@ -213,7 +215,7 @@ qui ont contribué, de près ou de loin, à la réalisation de ce projet de
 fin d'année.
 
 Nos remerciements s'adressent en premier lieu à notre encadrant,
-\textbf{[Nom du Professeur]}, pour sa disponibilité, ses conseils avisés
+\textbf{Mr. Mouad Banane}, pour sa disponibilité, ses conseils avisés
 et son suivi rigoureux tout au long de ce travail. Sa guidance nous a
 permis de structurer notre démarche et d'approfondir notre compréhension
 des enjeux de la Business Intelligence appliquée au risque crédit.
@@ -259,8 +261,8 @@ temporelle), accessible via URL sans installation côté client.
 
 L'étude de faisabilité entrepreneuriale démontre la viabilité économique
 du projet~: le seuil de rentabilité est atteint dès trois clients, avec
-une marge sur coût variable de 98\% et un résultat net Year~1 estimé à
-888~900~DH pour 19~clients pilotes.
+une marge sur coût variable de 92\% et un résultat net Year~1 estimé à 825~573~DH
+ pour 19~clients pilotes.
 \vspace{8cm}
 
 \textbf{Mots-clés~:} Risque crédit, Business Intelligence, SSIS,
@@ -294,8 +296,8 @@ Analysis, Temporal Analysis), accessible via URL with no client-side
 installation required.
 
 The entrepreneurial feasibility study confirms economic viability~: break-even
-is reached at just three clients, with a 98\% variable cost margin and an
-estimated Year-1 net result of 888,900 DH for 19 pilot clients.
+is reached at just three clients, with a 92\% variable cost margin and an
+estimated Year-1 net result of 825 573  DH for 19 pilot clients.
 \vspace{8cm}
 
 \textbf{Keywords:} Credit risk, Business Intelligence, SSIS,
@@ -364,7 +366,7 @@ microcr\'edit, coop\'eratives rurales et soci\'et\'es de financement --- op\`ere
 encore sans outil d'analyse d\'edi\'e, l'automatisation du pilotage du risque
 cr\'edit repr\'esente un besoin urgent et document\'e~\cite{bam_rapport,fnam}.
 
-[Compl\'etez ce paragraphe en d\'ecrivant le contexte macro\'economique marocain,
+Dans ce contexte, la stratégie nationale Maroc Digital 2030 impulse une transformation profonde du secteur financier marocain. Bank Al-Maghrib renforce ses exigences prudentielles en matière de gestion des risques, notamment le ratio de solvabilité Bâle~III et les obligations de reporting sur les créances en souffrance~\cite{bam_rapport}. Parallèlement, le taux de défaut dans le secteur de la microfinance marocaine oscille entre 12 et 18~\%, révélant un besoin urgent d'outils de pilotage automatisés et accessibles aux structures de petite taille. en d\'ecrivant le contexte macro\'economique marocain,
 les exigences de Bank Al-Maghrib en mati\`ere de contr\^ole des risques et la
 strat\'egie nationale Maroc Digital 2030.]
 
@@ -415,7 +417,7 @@ fondements th\'eoriques de la gestion de projet qui structurent notre d\'emarche
 l'\'etude de l'existant qui a motiv\'e notre solution et les analyses
 entrepreneuriales qui en valident la viabilit\'e \'economique.
 
-[Compl\'etez en 3~\`a~5~lignes.]
+Ce premier chapitre établit les bases conceptuelles et contextuelles du projet RiskSight. Nous y développons le cadre de gestion de projet adopté, analysons l'existant concurrentiel via les outils SWOT, PESTEL et Porter, et démontrons la viabilité économique de notre solution par une étude de faisabilité complète. Ces analyses fondent et justifient les choix techniques et architecturaux présentés dans les chapitres suivants. annotées et explications techniques afin de documenter fidèlement l'implémentation réalisée. Deux méthodes ETL complémentaires sont présentées~: le pipeline SSIS pour une architecture de production robuste, et Power Query pour un prototypage rapide directement dans Power~BI.
 
 % -----------------------------------------------------------
 \section{Gestion de Projet : Cadre Th\'eorique}
@@ -440,7 +442,7 @@ Acteur & R\^ole & Dans notre projet \\
 \midrule
 Ma\^itrise d'Ouvrage (MOA)
   & Propri\'etaire du projet ; d\'efinit les objectifs, le budget et les d\'elais
-  & {[Nom de l'\'etablissement / porteur]} \\
+  & {EMSI} \\
 \midrule
 Ma\^itrise d'\OE uvre (MOE)
   & Assure la conception et la r\'ealisation technique
@@ -543,9 +545,9 @@ d'un projet et formalise l'accord entre MOA et MOE~\cite{pmbok}.
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\linewidth}{>{\bfseries\color{primary}}p{3.5cm} X}
   Nom du projet     & RiskSight --- Plateforme SaaS de Scoring du Risque Cr\'edit \\
-  Porteur (MOA)     & {[Nom de l'\'etablissement]} \\
+  Porteur (MOA)     & {EMSI} \\
   Ma\^itre d'\oe uvre & Rania Bikikre \& Imane Nadif \\
-  Encadrant         & {[Nom du Professeur]} \\
+  Encadrant         & {Mouad Banane} \\
   P\'eriode         & Septembre 2025 --- Juin 2026 \\
   Objectif          & Concevoir une architecture BI compl\`ete permettant le
                       pilotage du risque cr\'edit des institutions financi\`eres
@@ -561,6 +563,7 @@ d'un projet et formalise l'accord entre MOA et MOE~\cite{pmbok}.
                       dashboard accessible via URL \\
 \end{tabularx}
 \end{tcolorbox}
+\newpage
 
 \subsection{Le Chef de Projet et ses Missions}
 
@@ -748,7 +751,7 @@ Mat\'eriel informatique
 
 \subsection{Description de l'Existant}
 
-[D\'ecrivez ici comment les institutions financi\`eres marocaines g\`erent
+Actuellement, la majorité des institutions financières marocaines --- associations de microcrédit, coopératives rurales et sociétés de financement --- gèrent leur portefeuille crédit via des tableurs Excel ou des fichiers papier. Cette approche manuelle engendre une perte de temps estimée à 2--3~jours par semaine pour le responsable crédit~\cite{prototype_slides}, une absence totale de vision globale du portefeuille et une incapacité à détecter les profils risqués en temps réel. Sur les 200+~structures recensées au Maroc, aucune ne dispose d'un outil de scoring automatisé adapté à leur taille et à leur budget~\cite{bam_rapport,fnam}. g\`erent
 actuellement leur risque cr\'edit~: utilisation d'Excel, fichiers papier,
 syst\`emes manuels. Illustrez avec des chiffres~: 2--3~jours perdus par
 semaine, absence d'outil d\'edi\'e dans 200+~structures. Sources~:
@@ -781,7 +784,7 @@ Excel manuel & Tableurs et calculs manuels par les agents cr\'edit
 
 \subsection{Critique de l'Existant}
 
-[Listez les limites des solutions actuelles~: absence de localisation marocaine,
+Les solutions existantes présentent plusieurs limites majeures. Les outils internationaux comme FICO Score et SAS Credit Risk sont conçus pour les grandes banques et affichent des coûts prohibitifs (plus de 100~000~DH/mois), incompatibles avec les budgets des microfinances marocaines. Par ailleurs, aucune de ces solutions n'est localisée pour le contexte marocain~: absence de support en Dirham, non-conformité avec la réglementation BAM et interfaces en anglais uniquement. L'alternative Excel, bien qu'accessible, ne permet aucune automatisation, aucune détection d'anomalie en temps réel et expose les institutions à des erreurs humaines fréquentes~\cite{tp3_faisabilite,prototype_slides}.~: absence de localisation marocaine,
 co\^uts prohibitifs, absence de vision portefeuille globale, d\'elai de
 d\'etection des profils risqu\'es, d\'ependance \`a l'expertise humaine.
 Appuyez-vous sur \cite{tp3_faisabilite,prototype_slides}.]
@@ -1129,7 +1132,7 @@ Charges fixes annuelles & --- & 120\,000 \\
 \midrule
 \textbf{R\'esultat net Year~1} &
   $1\,026\,000 - 17\,100 - 120\,000$ &
-  \textbf{\textcolor{successcolor}{888\,900~DH}} \\
+  \textbf{\textcolor{successcolor}{825\,573~DH}} \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1272,10 +1275,10 @@ CA annuel net après churn & $19 \times 4\,500 \times 12$ & \textbf{1\,026\,000~
 \begin{tcolorbox}[successbox,title={Verdict de Faisabilit\'e}]
 \textbf{Projet VIABLE --- Feu vert entrepreneurial.}
 Le seuil de rentabilit\'e est atteint avec seulement \textbf{3~clients} sur un
-march\'e cible de 200+~structures. La marge sur co\^ut variable (\textbf{98\%})
+march\'e cible de 200+~structures. La marge sur co\^ut variable (\textbf{92\%})
 est caract\'eristique des mod\`eles SaaS \`a fort levier op\'erationnel.
 L'objectif Year~1 de 19~clients g\'en\`ere un r\'esultat net estim\'e \`a
-\textbf{888\,900~DH}~\cite{tp3_faisabilite}.
+\textbf{825\,573~DH}~\cite{tp3_faisabilite}.
 \end{tcolorbox}
 
 % -----------------------------------------------------------
@@ -1360,7 +1363,7 @@ jusqu'aux tâches élémentaires~\cite{pmbok}.
 \begin{figure}[H]
 \centering
 
-\includegraphics[width=\textwidth]{wbs_risksight.png}
+\includegraphics[width=\textwidth]{figures/wbs_risksight.png}
 
 \caption{WBS (Work Breakdown Structure) du projet RiskSight}
 \label{fig:wbs}
@@ -1438,7 +1441,7 @@ la source de donn\'ees, la mod\'elisation du Data Warehouse en sch\'ema en
 \'etoile, la conception du pipeline ETL SSIS et les sp\'ecifications du dashboard
 Power~BI.
 
-[Compl\'etez en 3~\`a~5~lignes.]
+Ce chapitre présente la mise en oeuvre concrète de RiskSight, de la création du Data Warehouse jusqu'aux résultats visuels du dashboard. Pour chaque étape, nous combinons captures d'écran annotées et explications techniques afin de documenter fidèlement l'implémentation réalisée. Deux méthodes ETL complémentaires sont présentées~: le pipeline SSIS pour une architecture de production robuste, et Power Query pour un prototypage rapide directement dans Power~BI. et ses adaptations au contexte marocain, puis nous décrivons la modélisation du Data Warehouse en schéma en étoile sous SQL~Server 2022, avec ses cinq dimensions et sa table de faits centrale. Nous spécifions ensuite le pipeline ETL SSIS et son alternative Power Query, avant de présenter les trois pages du dashboard Power~BI avec leurs mesures DAX., analysons l'existant concurrentiel via les outils SWOT, PESTEL et Porter, et démontrons la viabilité économique de notre solution par une étude de faisabilité complète. Ces analyses fondent et justifient les choix techniques et architecturaux présentés dans les chapitres suivants.
 
 % -----------------------------------------------------------
 \section{Pr\'esentation du Dataset}
@@ -1535,6 +1538,56 @@ Versioning     & GitHub (repo priv\'e)   & Collaboration et historique \\
 \bottomrule
 \end{tabularx}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tabular}{ccc}
+\begin{tcolorbox}[mybox,width=4.5cm,height=4.5cm,halign=center,valign=center]
+\centering
+\includegraphics[height=1.8cm]{figures/sqlserver_logo}\\[0.3cm]
+\textbf{SQL Server 2022}\\
+\scriptsize\textit{Data Warehouse}
+\end{tcolorbox}
+&
+\begin{tcolorbox}[mybox,width=4.5cm,height=4.5cm,halign=center,valign=center]
+\centering
+\includegraphics[height=1.8cm]{figures/powerbi_logo}\\[0.3cm]
+\textbf{Power BI}\\
+\scriptsize\textit{Dashboard \& DAX}
+\end{tcolorbox}
+&
+\begin{tcolorbox}[mybox,width=4.5cm,height=4.5cm,halign=center,valign=center]
+\centering
+\includegraphics[height=1.8cm]{figures/visualstudio_logo}\\[0.3cm]
+\textbf{Visual Studio 2022}\\
+\scriptsize\textit{Pipeline SSIS}
+\end{tcolorbox}
+\\[0.3cm]
+\begin{tcolorbox}[mybox,width=4.5cm,height=4.5cm,halign=center,valign=center]
+\centering
+\includegraphics[height=1.8cm]{figures/python_logo}\\[0.3cm]
+\textbf{Python 3.x}\\
+\scriptsize\textit{Pré-traitement CSV}
+\end{tcolorbox}
+&
+\begin{tcolorbox}[mybox,width=4.5cm,height=4.5cm,halign=center,valign=center]
+\centering
+\includegraphics[height=1.8cm]{figures/github}\\[0.3cm]
+\textbf{GitHub}\\
+\scriptsize\textit{Versioning}
+\end{tcolorbox}
+&
+\begin{tcolorbox}[mybox,width=4.5cm,height=4.5cm,halign=center,valign=center]
+\centering
+\includegraphics[height=1.8cm]{figures/excel_logo}\\[0.3cm]
+\textbf{Microsoft Excel}\\
+\scriptsize\textit{Source de données}
+\end{tcolorbox}
+\end{tabular}
+\caption{Stack technologique de RiskSight}
+\label{fig:stack_logos}
+\end{figure}
+
 \vspace*{1.5cm}% -----------------------------------------------------------
 \section{Mod\'elisation du Data Warehouse --- Sch\'ema en \'Etoile}
 % -----------------------------------------------------------
@@ -1598,7 +1651,16 @@ analytiques et facilite la compr\'ehension par les utilisateurs m\'etier.
 \vspace*{1.5cm}
 \subsection{Description des Tables}
 
-[D\'ecrivez chaque table (fait\_demande\_credit, dim\_client, dim\_temps,
+Le schéma en étoile du Data Warehouse AtlasCreditBank comprend six tables~\cite{cdc_atlas}~:
+
+\begin{itemize}
+  \item \textbf{fait\_demande\_credit}~: table centrale contenant 1\,000~lignes. Elle enregistre chaque demande de crédit avec les clés étrangères vers les quatre dimensions et les mesures quantitatives (montant, durée, mensualité, défaut)~;
+  \item \textbf{dim\_client}~: 1\,000~lignes décrivant le profil sociodémographique de chaque emprunteur (âge, genre, statut marital, niveau d'emploi, type de logement)~;
+  \item \textbf{dim\_temps}~: 1\,000~lignes représentant les dates de demande avec décomposition en année, trimestre, mois et nom du mois pour faciliter l'analyse temporelle~;
+  \item \textbf{dim\_credit}~: 1\,000~lignes décrivant les caractéristiques de chaque crédit (objet, montant, tranche, durée, charge de remboursement)~;
+  \item \textbf{dim\_profil\_financier}~: 1\,000~lignes contenant le profil financier de l'emprunteur (statut du compte bancaire, niveau d'épargne, historique crédit, type de propriété)~;
+  \item \textbf{log\_defauts}~: 300~lignes enregistrant uniquement les clients en défaut, utilisée pour le suivi et l'audit du risque crédit.
+\end{itemize}, dim\_client, dim\_temps,
 dim\_credit, dim\_profil\_financier, log\_defauts) avec leur r\^ole, leur
 cardinal et leurs colonnes principales. R\'ef\'erencez \cite{cdc_atlas}.]
 
@@ -1702,6 +1764,8 @@ annee\_naissance
 \end{tabularx}
 \end{table}
 \vspace*{1.5cm}
+
+\newpage
 % -----------------------------------------------------------
 \section{Sp\'ecification du Dashboard Power BI}
 % -----------------------------------------------------------
@@ -1789,7 +1853,7 @@ Nous d\'ecrivons successivement la cr\'eation du Data Warehouse, l'impl\'ementat
 du pipeline SSIS (premi\`ere m\'ethode ETL), l'impl\'ementation via Power Query
 (seconde m\'ethode ETL) et les r\'esultats du dashboard Power~BI.
 
-[Compl\'etez en 3~\`a~5~lignes.]
+Ce chapitre détaille l'architecture technique de RiskSight. Nous présentons d'abord le dataset source et ses adaptations au contexte marocain, puis nous décrivons la modélisation du Data Warehouse en schéma en étoile sous SQL~Server 2022, avec ses cinq dimensions et sa table de faits centrale. Nous spécifions ensuite le pipeline ETL SSIS et son alternative Power Query, avant de présenter les trois pages du dashboard Power~BI avec leurs mesures DAX.
 
 % -----------------------------------------------------------
 \section{Cr\'eation du Data Warehouse sous SQL~Server}
@@ -1797,7 +1861,7 @@ du pipeline SSIS (premi\`ere m\'ethode ETL), l'impl\'ementation via Power Query
 
 \subsection{Cr\'eation de la Base de Donn\'ees}
 
-[D\'ecrivez les \'etapes de cr\'eation de la BDD AtlasCreditBank dans SSMS.
+La base de données \texttt{AtlasCreditBank} a été créée dans SQL~Server Management Studio (SSMS) en exécutant le script de création via \texttt{Nouvelle requête}. Après exécution du script complet (cf. Annexe~A), SSMS affiche les six tables du schéma \texttt{atlas\_dwh} dans l'explorateur d'objets, confirmant la création correcte de la structure du Data Warehouse. dans SSMS.
 Ins\'erez une capture d'\'ecran de SSMS montrant la base de donn\'ees cr\'e\'ee.]
 
 \begin{figure}[H]
@@ -1893,7 +1957,7 @@ CREATE TABLE atlas_dwh.log_defauts (
 
 \subsection{Configuration des Connexions}
 
-[D\'ecrivez la configuration des connexions Source CSV (code page 65001 UTF-8)
+Deux connexions sont configurées dans le Connection Manager de Visual Studio 2022. La source CSV utilise un \textbf{Flat File Connection Manager} paramétré en UTF-8 (code page 65001) avec le point-virgule comme délimiteur. La destination SQL~Server utilise un \textbf{OLE~DB Connection Manager} pointant vers l'instance locale \texttt{.\\SQLEXPRESS}, base de données \texttt{AtlasCreditBank}. (code page 65001 UTF-8)
 et SQL~Server OLE~DB. Ins\'erez une capture d'\'ecran de la fen\^etre de
 configuration de Visual Studio 2022.]
 
@@ -2041,7 +2105,7 @@ Cas d'usage optimal & Production, volumes importants & Prototypage rapide, PME \
 \bottomrule
 \end{tabularx}
 \end{table}
-
+\newpage
 % -----------------------------------------------------------
 \section{Dashboard Power BI --- R\'esultats Obtenus}
 % -----------------------------------------------------------
@@ -2143,7 +2207,7 @@ ce qui valide la robustesse de l'architecture propos\'ee.
 
 \section*{Bilan du projet}
 
-[R\'edigez ici un bilan complet~: rappel de la probl\'ematique, r\'esum\'e des
+Ce projet avait pour objectif de répondre à une problématique concrète~: comment automatiser le pilotage du risque crédit pour les institutions financières marocaines, sans expertise IT et à coût accessible~? Pour y répondre, nous avons conçu et développé \textbf{RiskSight}, une plateforme SaaS de scoring et de pilotage du risque crédit reposant sur une architecture Business Intelligence complète \textit{end-to-end}. Le pipeline ETL SSIS extrait, transforme et charge 1\,000~dossiers de crédit dans un Data Warehouse modélisé en schéma en étoile sous SQL~Server 2022. Le dashboard Power~BI en trois pages restitue les indicateurs clés de risque, accessibles via URL sans installation. L'étude de faisabilité entrepreneuriale confirme la viabilité économique du projet~: le seuil de rentabilité est atteint dès 3~clients, avec une marge sur coût variable de 92\% et un résultat net Year~1 estimé à 825\,573~DH pour 19~clients pilotes.~: rappel de la probl\'ematique, r\'esum\'e des
 travaux r\'ealis\'es (ETL SSIS, Data Warehouse, dashboard Power~BI), r\'esultats
 obtenus et validation de la faisabilit\'e entrepreneuriale.]
 
@@ -2155,7 +2219,7 @@ obtenus et validation de la faisabilit\'e entrepreneuriale.]
   \item Dashboard Power~BI en 3~pages avec mesures DAX avanc\'ees~;
   \item Impl\'ementation alternative via Power Query (validation crois\'ee)~;
   \item \'Etude de march\'e compl\`ete (SWOT, PESTEL, Porter)~;
-  \item Faisabilit\'e \'economique prouv\'ee (SR = 3~clients, marge $\approx$98\%).
+  \item Faisabilit\'e \'economique prouv\'ee (SR = 3~clients, marge $\approx$92\%).
 \end{itemize}
 
 \section*{Limites et Perspectives}
@@ -2480,7 +2544,7 @@ DBCC CHECKIDENT ('atlas_dwh.log_defauts',          RESEED, 0);
 \centering
 \caption{Grille tarifaire RiskSight~\cite{etape6_viabilite}}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{>{\bfseries}p{3cm} p{2cm} X p{4.5cm}}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{2.5cm} p{3cm} X p{3.5cm}}
 \toprule
 \rowcolor{primary!12}
 Offre & Tarif mensuel & Fonctionnalit\'es & Cible \\
