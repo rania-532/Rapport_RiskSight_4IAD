@@ -3,7 +3,7 @@
 
 % ============================================================
 
-\documentclass[12pt, a4paper, draft]{report}
+\documentclass[12pt, a4paper]{report}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -65,6 +65,7 @@
 \titleformat{\chapter}[display]
   {\normalfont\Large\bfseries\color{primary}}
   {\chaptertitlename\ \thechapter}{10pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
 \titleformat{\section}
   {\normalfont\large\bfseries\color{primary}}{\thesection}{1em}{}
 \titleformat{\subsection}
@@ -76,6 +77,12 @@
 \usepackage{url}
 
 % ============================================================
+\usepackage{array}
+\usepackage{ragged2e}  % Pour \RaggedRight (coupe moins que \raggedright)
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{longtable}
+\usepackage{forest}  % à mettre dans le préambule
 \begin{document}
 
 % ── PAGE DE GARDE ──────────────────────────────────────────
@@ -90,9 +97,11 @@
 \end{tikzpicture}
 
 \vspace*{0.5cm}
-\begin{center}
-\includegraphics[width=10cm]{figures/emsi_logo}
-\end{center}
+
+\begin{flushleft}
+\includegraphics[width=7cm]{figures/emsi_logo}
+\end{flushleft}
+
 \vspace*{0.3cm}
 
 \vfill
@@ -100,15 +109,13 @@
 \begin{tcolorbox}[enhanced,colback=white,colframe=primary,
   boxrule=2pt,arc=4pt,left=10pt,right=10pt,top=10pt,bottom=10pt]
   \centering
- {\fontsize{32}{40}\selectfont\bfseries\color{primary} RiskSight}\\[0.4cm]
-  {\large\color{secondary}\rule{8cm}{1.5pt}}\\[0.8cm]
-  {\large\color{darkgray}
-    Plateforme SaaS de Scoring et de Pilotage\\
-    du Risque Cr\'edit pour les Institutions\\
-    Financi\`eres Marocaines}\\[0.5cm]
-  
+  {\fontsize{32}{40}\selectfont\bfseries\color{primary} RiskSight}\\[0.4cm]
+  {\Large\color{secondary}\rule{8cm}{1.5pt}}\\[0.8cm]
+  {\fontsize{20}{28}\selectfont\color{darkgray}
+    Plateforme SaaS de Scoring et de Pilotage\\[0.3cm]
+    du Risque Crédit pour les Institutions\\[0.3cm]
+    Financières Marocaines}\\[0.5cm]
 \end{tcolorbox}
-
 \vfill
 
 \begin{minipage}{0.40\textwidth}
@@ -147,6 +154,17 @@ et son suivi rigoureux tout au long de ce travail. Sa guidance nous a
 permis de structurer notre démarche et d'approfondir notre compréhension
 des enjeux de la Business Intelligence appliquée au risque crédit.
 
+Nous adressons également nos sincères remerciements à
+\textbf{Dr. Yousra Aït Larbi}, professeure d'entrepreneuriat, pour
+son accompagnement dans la dimension entrepreneuriale de ce projet
+et pour nous avoir encouragés à ancrer notre solution dans une
+réalité de marché concrète.
+
+Nous remercions aussi \textbf{Mme. gestion projet}, professeure de
+gestion de projet, pour ses enseignements méthodologiques qui nous
+ont permis de structurer et de \newline planifier efficacement les différentes
+phases de ce travail.
+
 Nous remercions également l'ensemble du corps enseignant de la filière
 \textbf{Ingénierie Informatique et Réseaux -- option IA \& Data} de l'EMSI,
 dont les enseignements en gestion de projet, en bases de données et en
@@ -154,7 +172,6 @@ analyse de données constituent le socle technique de ce projet.
 
 Nos remerciements vont enfin à nos familles pour leur soutien
 indéfectible.
-
 
 
 
@@ -488,6 +505,30 @@ principal de RiskSight.
 
 \begin{table}[H]
 \centering
+\caption{Analyse QQQQCCP du problème}
+\label{tab:qqqqccp}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{>{\bfseries\RaggedRight}p{2.5cm} >{\RaggedRight}X >{\RaggedRight}p{3cm}}
+\toprule
+\rowcolor{primary!12}
+\textbf{Question} & \textbf{Réponse} & \textbf{Implication pour le projet} \\
+\midrule
+Qui ? & Responsables crédit, directeurs risques dans 200+ structures non équipées & Définit le segment cible de RiskSight \\
+Quoi ? & Absence d'outil automatisé de pilotage du risque crédit & Cœur du problème à résoudre \\
+Où ? & Maroc : institutions financières non bancaires (microfinances, coopératives) & Délimite le périmètre géographique \\
+Quand ? & En permanence, aggravé par les exigences BAM Bâle III & Urgence réglementaire croissante \\
+Comment ? & Gestion manuelle sur Excel, sans indicateurs d'alerte & Traduit la pratique actuelle à remplacer \\
+Combien ? & 2-3 jours/semaine perdus ; taux défaut 12-18\% & Quantifie l'impact du problème \\
+Pourquoi ? & Aucune solution locale accessible financièrement et techniquement & Confirme le vide de marché \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Méthode QQOQCCP appliquée}
+
+\begin{table}[H]
+\centering
 \caption{Fiche profil de l'utilisateur cible}
 \label{tab:profil_utilisateur}
 \renewcommand{\arraystretch}{1.4}
@@ -502,29 +543,6 @@ Dimension & Description \\
 \textbf{Frustrations} & Données éparpillées, aucune vue globale, détection tardive des impayés \\
 \textbf{Compétences IT} & Faibles à modérées --- ne maîtrise pas SQL, Power BI ni les outils BI \\
 \textbf{Contrainte budgétaire} & Budget IT limité ($<$5~000~DH/mois selon les benchmarks sectoriels~\cite{tp3_faisabilite}) \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\subsection{Méthode QQOQCCP appliquée}
-
-\begin{table}[H]
-\centering
-\caption{Analyse QQOQCCP du problème}
-\label{tab:qqoqccp}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{2.5cm} p{3cm} X}
-\toprule
-\rowcolor{primary!12}
-Question & Réponse & Implication pour le projet \\
-\midrule
-\textbf{Qui ?} & Responsables crédit, directeurs risques dans 200+~structures non équipées & Définit le segment cible de RiskSight \\
-\textbf{Quoi ?} & Absence d'outil automatisé de pilotage du risque crédit & Cœur du problème à résoudre \\
-\textbf{Où ?} & Maroc --- institutions financières non bancaires (microfinances, coopératives) & Délimite le périmètre géographique \\
-\textbf{Quand ?} & En permanence, aggravé par les exigences BAM Bâle~III & Urgence réglementaire croissante \\
-\textbf{Comment ?} & Gestion manuelle sur Excel, sans indicateurs d'alerte & Traduit la pratique actuelle à remplacer \\
-\textbf{Combien ?} & 2--3 jours/semaine perdus~; taux défaut 12--18~\%~\cite{bam_rapport} & Quantifie l'impact du problème \\
-\textbf{Pourquoi ?} & Aucune solution locale accessible financièrement et techniquement & Confirme le vide de marché \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -626,6 +644,7 @@ solution est retenue car elle~:
 \end{itemize}
 
 % -----------------------------------------------------------
+\newpage
 \section{Hypothèses de Départ}
 % -----------------------------------------------------------
 
@@ -852,6 +871,7 @@ Dimension & Analyse & Impact \\
 \end{table}
 
 % -----------------------------------------------------------
+\newpage
 \section{Étude Concurrentielle}
 % -----------------------------------------------------------
 
@@ -898,41 +918,24 @@ scoring crédit pour les microfinances marocaines.
 
 \begin{table}[H]
 \centering
-\caption{Analyse des 5~forces de Porter pour RiskSight~\cite{tp3_faisabilite}}
+\caption{Analyse des 5 forces de Porter pour RiskSight~\cite{tp3_faisabilite}}
 \label{tab:porter}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{4.2cm} X p{2.6cm}}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{6pt}
+\begin{tabularx}{\textwidth}{>{\bfseries\RaggedRight}p{3.5cm} >{\RaggedRight}X >{\centering\arraybackslash}p{2.5cm}}
 \toprule
 \rowcolor{primary!12}
-Force & Analyse & Niveau \\
+\textbf{Force} & \textbf{Analyse} & \textbf{Niveau} \\
 \midrule
-Rivalité concurrentielle
-  & Aucun concurrent direct local sur le segment microfinance marocaine.
-    Solutions internationales ne ciblent pas ce marché. Seule concurrence
-    indirecte~: Excel et pratiques manuelles.
-  & \textcolor{successcolor}{\textbf{FAIBLE}} \\
+Rivalité concurrentielle & Aucun concurrent direct local sur le segment microfinance marocaine. Solutions internationales ne ciblent pas ce marché. Seule concurrence indirecte : Excel et pratiques manuelles. & \textcolor{green}{\textbf{FAIBLE}} \\
 \midrule
-Menace des nouveaux entrants
-  & Barrière technique réelle (chaîne BI complète, expertise SQL/Power~BI).
-    Coût d'acquisition client élevé dans le secteur bancaire.
-    Outils low-code émergents pourraient abaisser la barrière à terme.
-  & \textcolor{secondary}{\textbf{MODÉRÉE}} \\
+Menace des nouveaux entrants & Barrière technique réelle (chaîne BI complète, expertise SQL/Power BI). Coût d'acquisition client élevé dans le secteur bancaire. Outils low-code émergents pourraient abaisser la barrière à terme. & \textcolor{orange}{\textbf{MODÉRÉE}} \\
 \midrule
-Pouvoir des fournisseurs
-  & Dépendance à Microsoft (Power~BI, SQL~Server, SSIS).
-    Atténuée par les alternatives open source (PostgreSQL, Metabase).
-  & \textcolor{secondary}{\textbf{MODÉRÉE}} \\
+Pouvoir des fournisseurs & Dépendance à Microsoft (Power BI, SQL Server, SSIS). Atténuée par les alternatives open source (PostgreSQL, Metabase). & \textcolor{orange}{\textbf{MODÉRÉE}} \\
 \midrule
-Pouvoir des clients
-  & Microfinances et coopératives ont peu d'alternatives locales.
-    Risque de churn si le ROI n'est pas démontré rapidement.
-  & \textcolor{successcolor}{\textbf{FAIBLE}} \\
+Pouvoir des clients & Microfinances et coopératives ont peu d'alternatives locales. Risque de churn si le ROI n'est pas démontré rapidement. & \textcolor{green}{\textbf{FAIBLE}} \\
 \midrule
-Menace des substituts
-  & Principal substitut~: Excel + analyse manuelle (inertie forte).
-    Substitut secondaire~: recruter un data analyst interne
-    (12~000--20~000~DH/mois contre 4~500~DH/mois notre offre Pro).
-  & \textcolor{secondary}{\textbf{MODÉRÉE}} \\
+Menace des substituts & Principal substitut : Excel + analyse manuelle (inertie forte). Substitut secondaire : recruter un data analyst interne (12\,000--20\,000 DH/mois contre 4\,500 DH/mois notre offre Pro). & \textcolor{orange}{\textbf{MODÉRÉE}} \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1053,6 +1056,7 @@ Cette plage de prix est cohérente avec la grille tarifaire RiskSight (voir
 Annexe~C).
 
 % -----------------------------------------------------------
+\newpage
 \section{Positionnement et Proposition de Valeur}
 % -----------------------------------------------------------
 
@@ -1103,26 +1107,42 @@ suivantes.
 
 \subsection{Contexte et objectif général}
 
-\begin{tcolorbox}[mybox,title={Charte du Projet RiskSight}]
-\renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\linewidth}{>{\bfseries\color{primary}}p{3.5cm} X}
+\begin{tcolorbox}[mybox, title={Charte du Projet RiskSight}]
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{>{\bfseries\color{primary}}l X}
   Nom du projet     & RiskSight --- Plateforme SaaS de Scoring du Risque Crédit \\
   Porteur (MOA)     & EMSI --- École Marocaine des Sciences de l'Ingénieur \\
-  Maître d'\oe uvre & Rania Bikikre \& Imane Nadif \\
+  Maître d'œuvre    & Rania Bikikre \& Imane Nadif \\
   Encadrant         & Mr. Mouad Banane \\
   Période           & Septembre 2025 --- Juin 2026 \\
   Objectif général  & Concevoir et déployer une architecture BI complète permettant
                       le pilotage automatisé du risque crédit des institutions
                       financières marocaines de petite taille \\
-  Périmètre         & 1~000~dossiers de crédit (2020--2024), pipeline ETL (Python + SSIS),
-                      Data Warehouse (SQL Server 2022), dashboard Power~BI 3~pages \\
-  Budget            & Nul~--- licences étudiantes Microsoft + outils open source \\
-  Livrables clés    & Pipeline SSIS (.dtsx), BDD SQL Server, Dashboard Power~BI (.pbix),
-                      Rapport PFA, Soutenance orale \\
-  Contraintes       & Données fictives à vocation pédagogique~; Loi~09-08 protection
-                      des données~; délai de 4~mois~; équipe de 2~personnes \\
-  Critères de succès & Pipeline fonctionnel, 1~000~lignes chargées, dashboard accessible
-                      via URL, taux de défaut calculé = 30~\% \\
+  Périmètre         & \begin{itemize}[leftmargin=*, nosep]
+                        \item 1~000 dossiers de crédit (2020--2024)
+                        \item Pipeline ETL (Python + SSIS)
+                        \item Data Warehouse (SQL Server 2022)
+                        \item Dashboard Power BI (3 pages)
+                      \end{itemize} \\
+  Budget            & Nul --- licences étudiantes Microsoft + outils open source \\
+  Livrables clés    & \begin{itemize}[leftmargin=*, nosep]
+                        \item Pipeline SSIS (.dtsx)
+                        \item BDD SQL Server
+                        \item Dashboard Power BI (.pbix)
+                        \item Rapport PFA, Soutenance orale
+                      \end{itemize} \\
+  Contraintes       & \begin{itemize}[leftmargin=*, nosep]
+                        \item Données fictives à vocation pédagogique
+                        \item Loi 09-08 protection des données
+                        \item Délai de 4 mois
+                        \item Équipe de 2 personnes
+                      \end{itemize} \\
+  Critères de succès & \begin{itemize}[leftmargin=*, nosep]
+                        \item Pipeline fonctionnel
+                        \item 1~000 lignes chargées
+                        \item Dashboard accessible via URL
+                        \item Taux de défaut calculé = 30~\%
+                      \end{itemize} \\
 \end{tabularx}
 \end{tcolorbox}
 
@@ -1133,16 +1153,17 @@ suivantes.
 \caption{Objectifs SMART du projet RiskSight}
 \label{tab:smart}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{1cm} p{4cm} p{2cm} X}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{>{\columncolor{primary!12}}c >{\RaggedRight}X >{\RaggedRight}X >{\centering\arraybackslash}c}
 \toprule
-\rowcolor{primary!12}
-\# & Objectif & Critère de mesure & Échéance \\
+\rowcolor{primary!30}
+\# & \textbf{Objectif} & \textbf{Critère de mesure} & \textbf{Échéance} \\
 \midrule
-O1 & Construire un pipeline ETL complet (Python + SSIS) & 1~000~lignes chargées sans erreur en $<$5~min & S4 \\
-O2 & Modéliser un Data Warehouse en schéma en étoile & 5~tables + log créées~; 0~violation FK & S4 \\
-O3 & Développer un dashboard Power~BI en 3~pages & Taux défaut = 30~\%~; PREVIOUSYEAR fonctionnel & S6 \\
-O4 & Implémenter une 2\textsuperscript{e} méthode ETL (Power Query) & Résultats identiques à SSIS~; 1~000~lignes & S6 \\
-O5 & Livrer le rapport et la soutenance & Chapitres 1--7 complets~; démo live fonctionnelle & S8 \\
+O1 & Construire un pipeline ETL complet (Python + SSIS) & 1\,000 lignes chargées sans erreur en < 5 min & S4 \\
+O2 & Modéliser un Data Warehouse en schéma en étoile & 5 tables + clés étrangères créées, 0 violation FK & S4 \\
+O3 & Développer un dashboard Power BI en 3 pages & Taux défaut = 30\,\%, fonction PREVIOUSYEAR opérationnelle & S6 \\
+O4 & Implémenter une 2\ieme{} méthode ETL (Power Query) & Résultats identiques à SSIS sur 1\,000 lignes & S6 \\
+O5 & Livrer le rapport et la soutenance & Chapitres 1 à 7 complets, démo live fonctionnelle & S8 \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1161,10 +1182,10 @@ O5 & Livrer le rapport et la soutenance & Chapitres 1--7 complets~; démo live f
 \midrule
 Pipeline ETL automatisé (Python + SSIS) & Interface web d'upload client autonome (V2) \\
 Data Warehouse SQL Server en schéma en étoile & Modèle de scoring Machine Learning (V3) \\
-Dashboard Power~BI 3~pages avec mesures DAX & Application mobile \\
+Dashboard Power~BI 3~pages avec \newline mesures DAX & Application mobile \\
 Publication via Power~BI Service (accès URL) & Intégration directe aux systèmes Core Banking \\
-Module de mapping de colonnes (onboarding) & Support multilingue arabe en Phase~1 \\
-Documentation technique et rapport PFA & Déploiement sur infrastructure cloud dédiée \\
+Module de mapping de colonnes \newline (onboarding) & Support multilingue arabe en Phase~1 \\
+Documentation technique et rapport PFA & Déploiement sur infrastructure cloud \newline dédiée \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1176,17 +1197,18 @@ Documentation technique et rapport PFA & Déploiement sur infrastructure cloud d
 \caption{Parties prenantes du projet RiskSight}
 \label{tab:parties_prenantes_cadrage}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{>{\bfseries}p{3.2cm} X p{4cm}}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{>{\bfseries\columncolor{primary!12}}p{3cm} >{\RaggedRight}X >{\RaggedRight}p{4cm}}
 \toprule
-\rowcolor{primary!12}
-Acteur & Rôle & Dans notre projet \\
+\rowcolor{primary!30}
+\textbf{Acteur} & \textbf{Rôle} & \textbf{Dans notre projet} \\
 \midrule
-Maîtrise d'Ouvrage (MOA) & Propriétaire du projet~; définit les objectifs et valide les livrables & EMSI \\
+Maîtrise d'Ouvrage (MOA) & Propriétaire du projet, définit \newline les objectifs et valide les livrables & EMSI \\
 Maîtrise d'\OE uvre (MOE) & Assure la conception et la réalisation technique & Rania Bikikre \& Imane Nadif \\
 Chef de Projet & Coordonne, gère les risques et le planning & Désigné au sein du binôme \\
-Encadrant & Valide les livrables~; jury de soutenance & Mr. Mouad Banane \\
-Utilisateur Final & Utilise la solution au quotidien & Responsable crédit / Directeur Risques \\
-Parties Externes & Fournisseurs~: outils et données & Bank Al-Maghrib, Microsoft, UCI \\
+Encadrant & Valide les livrables, jury de \newline soutenance & Mr. Mouad Banane \\
+Utilisateur  \newline Final & Utilise la solution au quotidien & Responsable crédit / Directeur Risques \\
+Parties \newline Externes & Fournisseurs d'outils et de données & Bank Al-Maghrib, Microsoft, UCI \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1198,16 +1220,17 @@ Parties Externes & Fournisseurs~: outils et données & Bank Al-Maghrib, Microsof
 \caption{Livrables avec critères d'acceptation mesurables}
 \label{tab:livrables_cadrage}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{4.5cm} p{1.5cm} X p{2.5cm}}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{p{4cm} p{1.5cm} X p{2.5cm}}
 \toprule
 \rowcolor{primary!12}
-Livrable & Échéance & Critère d'acceptation & Responsable \\
+\textbf{Livrable} & \textbf{Échéance} & \textbf{Critère d'acceptation} & \textbf{Responsable} \\
 \midrule
-Pipeline SSIS (.dtsx) & S4 & 1~000~lignes chargées~; 300 dans log\_defauts~; $<$5~min & Rania \\
-Data Warehouse SQL Server & S4 & 5~tables + log~; FK validées~; 0~violation & Rania \\
-Dashboard Power~BI (3~pages) & S6 & Taux défaut = 30~\%~; URL accessible & Imane \\
-Implémentation Power Query & S6 & Résultats identiques à SSIS & Imane \\
-Rapport technique final & S8 & Chapitres complets~; captures d'écran & Binôme \\
+Pipeline SSIS (.dtsx) & S4 & 1\,000 lignes chargées\newline 300 dans log\_defauts\newline < 5 min & Rania \\
+Data Warehouse SQL Server & S4 & 5 tables + log\newline FK validées\newline 0 violation & Rania \\
+Dashboard Power BI (3 pages) & S6 & Taux défaut = 30\,\%\newline URL accessible & Imane \\
+Implémentation \newline Power Query & S6 & Résultats identiques à SSIS & Imane \\
+Rapport technique \newline final & S8 & Chapitres complets\newline captures d'écran & Binôme \\
 Soutenance orale + démo live & S8 & Démonstration pipeline F5 en direct & Binôme \\
 \bottomrule
 \end{tabularx}
@@ -1219,6 +1242,7 @@ Dataset (UCI, 1994) est librement utilisable à des fins pédagogiques~\cite{hof
 (3)~une connexion internet stable est disponible pour la publication Power~BI Service.
 
 % -----------------------------------------------------------
+\newpage
 \section{Choix et Justification du Cycle de Vie}
 % -----------------------------------------------------------
 
@@ -1229,15 +1253,17 @@ Dataset (UCI, 1994) est librement utilisable à des fins pédagogiques~\cite{hof
 \caption{Comparaison des modèles de cycle de vie}
 \label{tab:cycle_vie}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{3cm} X p{3cm} p{2.5cm}}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{>{\RaggedRight}p{2.8cm} >{\RaggedRight}X >{\RaggedRight}p{2.8cm} >{\RaggedRight}p{2.5cm}}
 \toprule
 \rowcolor{primary!12}
-Modèle & Caractéristiques & Avantages & Inconvénients \\
+\textbf{Modèle} & \textbf{Caractéristiques} & \textbf{Avantages} & \textbf{Inconvénients} \\
 \midrule
-Cascade & Phases séquentielles~; exigences figées dès le départ & Planification précise & Rigide~; retours en arrière coûteux \\
-Agile / Scrum & Sprints courts~; livraisons fréquentes~; rétroactions continues & Adaptabilité~; livraisons rapides & Scope difficile à contrôler \\
-\textbf{Incrémental} & \textbf{Phases bien définies~; livrables à la fin de chaque phase~; ajustements possibles} & \textbf{Équilibre structure / flexibilité} & \textbf{---} \\
-Hybride & Combine cascade et Agile selon les phases & Flexible & Complexe à coordonner \\
+Cascade & Phases séquentielles\newline exigences figées dès le départ & Planification précise & Rigide\newline retours en arrière coûteux \\
+Agile / Scrum & Sprints courts\newline livraisons fréquentes\newline rétroactions continues & Adaptabilité\newline livraisons rapides & Scope difficile à contrôler \\
+\rowcolor{primary!5}
+\textbf{Incrémental} & \textbf{Phases bien définies\newline livrables à la fin de chaque phase\newline ajustements possibles} & \textbf{Équilibre structure / flexibilité} & \textbf{Aucun (pour notre projet)} \\
+Hybride & Combine cascade et Agile\newline selon les phases & Flexible & Complexe à coordonner \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1261,6 +1287,7 @@ les risques et permet des ajustements progressifs~:
 \end{tcolorbox}
 
 % -----------------------------------------------------------
+\newpage
 \section{Étude Critique de l'Existant}
 % -----------------------------------------------------------
 
@@ -1271,19 +1298,20 @@ les risques et permet des ajustements progressifs~:
 \caption{Étude critique des solutions existantes de scoring crédit}
 \label{tab:existant_critique}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{3cm} X p{2.2cm} X}
+\setlength{\tabcolsep}{8pt}
+\begin{tabularx}{\textwidth}{>{\RaggedRight}p{2.8cm} >{\RaggedRight}X >{\RaggedRight}p{2.2cm} >{\RaggedRight}X}
 \toprule
 \rowcolor{primary!12}
-Solution & Description & Coût mensuel & Limitations pour le marché cible \\
+\textbf{Solution} & \textbf{Description} & \textbf{Coût mensuel} & \textbf{Limitations pour le marché cible} \\
 \midrule
-FICO Score & Plateforme internationale leader du scoring crédit & $>$100~000~DH & Conçu pour les grandes banques~; pas de localisation marocaine~; exige une équipe IT dédiée \\
-SAS Credit Risk & Suite analytique industrielle & Très élevé & Inaccessible financièrement~; déploiement en 6--12~mois~; interface en anglais uniquement \\
-Excel manuel & Tableur Microsoft, pratique dominante actuelle & 0~DH & Aucune automatisation~; aucune détection d'anomalie~; vision portefeuille inexistante~; erreurs humaines fréquentes \\
-Systèmes bancaires internes & Développés par les grandes banques marocaines & N/A & Non commercialisés~; développement sur mesure hors de portée des petites structures \\
+FICO Score & Plateforme internationale\newline leader du scoring crédit & >100\,000 DH & Conçu pour les grandes banques\newline pas de localisation marocaine\newline exige une équipe IT dédiée \\
+SAS Credit Risk & Suite analytique industrielle & Très élevé & Inaccessible financièrement\newline déploiement en 6 à 12 mois\newline interface en anglais uniquement \\
+Excel manuel & Tableur Microsoft\newline pratique dominante actuelle & 0 DH & Aucune automatisation\newline aucune détection d'anomalie\newline vision portefeuille inexistante\newline erreurs humaines fréquentes \\
+Systèmes bancaires internes & Développés par les\newline grandes banques marocaines & N/A & Non commercialisés\newline développement sur mesure\newline hors de portée des petites structures \\
 \bottomrule
 \end{tabularx}
 \end{table}
-
+\newpage
 \subsection{Critique argumentée de l'existant}
 
 L'analyse de l'existant révèle cinq limites structurelles~\cite{tp3_faisabilite}~:
@@ -1455,6 +1483,7 @@ Priorité & Fonctionnalité & BF associé \\
 \end{table}
 
 % -----------------------------------------------------------
+\newpage
 \section{Besoins Non Fonctionnels}
 % -----------------------------------------------------------
 
@@ -1642,95 +1671,139 @@ La WBS (Work Breakdown Structure) décompose le projet RiskSight en livrables
 concrets et mesurables, organisés de façon hiérarchique. Chaque nœud de la WBS
 correspond à un livrable réel dont la production peut être vérifiée~\cite{pmbok}.
 
-\begin{table}[H]
-\centering
-\caption{WBS de RiskSight --- Décomposition des livrables par phase}
-\label{tab:wbs}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{1.5cm} p{3.5cm} X p{3cm}}
+\begin{longtable}{>{\centering\arraybackslash}p{1.2cm} >{\bfseries\RaggedRight}p{3cm} >{\RaggedRight}p{4cm} >{\RaggedRight}p{3.2cm}}
+\caption{WBS de RiskSight --- Décomposition des livrables par phase} \\
 \toprule
 \rowcolor{primary!12}
-Code & Phase / Livrable & Description & Critère de complétion \\
+\textbf{Code} & \textbf{Phase / Livrable} & \textbf{Description} & \textbf{Critère de complétion} \\
 \midrule
-\textbf{1} & \textbf{Cadrage} & Définition du périmètre et formalisation du projet & CDC validé par l'encadrant \\
+\endfirsthead
+
+\multicolumn{4}{c}{\textbf{\textit{Suite du tableau}}} \\
+\toprule
+\rowcolor{primary!12}
+\textbf{Code} & \textbf{Phase / \newline Livrable} & \textbf{Description} & \textbf{Critère de complétion} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+% ========== PHASE 1 ==========
+\multicolumn{4}{c}{\textbf{\large Phase 1 : Cadrage}} \\
+\midrule
+1 & Cadrage & Définition du \newline périmètre et \newline formalisation du projet & CDC validé par l'encadrant \\
 1.1 & Analyse des besoins & Recueil et clarification des exigences & Document de besoins signé \\
-1.2 & Cahier des charges & Formalisation du périmètre, contraintes, livrables & CDC version~1.0 livrée \\
+1.2 & Cahier des charges & Formalisation du \newline périmètre, contraintes, livrables & CDC version 1.0 livrée \\
 \midrule
-\textbf{2} & \textbf{Conception} & Modélisation du système avant développement & Architecture validée \\
-2.1 & Schéma en étoile DWH & Modélisation des 5~tables + log sous SQL~Server & Script SQL CREATE TABLE exécuté \\
+
+% ========== PHASE 2 ==========
+\multicolumn{4}{c}{\textbf{\large Phase 2 : Conception}} \\
+\midrule
+2 & Conception & Modélisation du \newline système avant développement & Architecture \newline validée \\
+2.1 & Schéma en étoile DWH & Modélisation des 5 tables + log sous SQL Server & Script SQL CREATE TABLE exécuté \\
 2.2 & Architecture pipeline & Spécification du flux ETL SSIS complet & Diagramme de flux validé \\
-2.3 & Spécification dashboard & Définition des 3~pages Power~BI et mesures DAX & Maquettes Power~BI approuvées \\
+2.3 & Spécification dashboard & Définition des 3 pages Power BI et mesures DAX & Maquettes Power BI approuvées \\
 \midrule
-\textbf{3} & \textbf{Développement} & Implémentation technique de la solution & Tous modules fonctionnels \\
-3.1 & Data Warehouse SQL Server & Création des 6~tables dans SSMS & COUNT(*) = 0 (tables vides, structure valide) \\
-3.2 & Pipeline SSIS (Tâche~1) & Chargement des 5~dimensions & COUNT(*) = 1~000 dans chaque dim \\
-3.3 & Pipeline SSIS (Tâche~2) & Chargement de la table de faits & COUNT(*) = 1~000 dans fait\_demande\_credit \\
-3.4 & Dashboard Power~BI & 3~pages avec mesures DAX & Taux défaut = 30~\%~; URL accessible \\
+
+% ========== PHASE 3 ==========
+\multicolumn{4}{c}{\textbf{\large Phase 3 : Développement}} \\
+\midrule
+3 & Développement & Implémentation technique de la solution & Tous modules fonctionnels \\
+3.1 & Data Warehouse SQL Server & Création des 6 tables dans SSMS & Structure valide, tables vides \\
+3.2 & Pipeline SSIS (Tâche 1) & Chargement des 5 dimensions & 1\,000 lignes dans chaque dimension \\
+3.3 & Pipeline SSIS (Tâche 2) & Chargement de la table de faits & 1\,000 lignes dans fait\_demande\_credit \\
+3.4 & Dashboard Power BI & 3 pages avec mesures DAX & Taux défaut = 30\%, URL accessible \\
 3.5 & Implémentation Power Query & ETL alternatif et comparaison & Résultats identiques à SSIS \\
 \midrule
-\textbf{4} & \textbf{Tests \& Validation} & Vérification de la conformité aux besoins & 0~anomalie critique ouverte \\
-4.1 & Tests unitaires ETL & Vérification de chaque composant SSIS & Tableau de tests rempli \\
-4.2 & Tests intégration & Vérification bout-en-bout pipeline→dashboard & Dashboard alimenté par données réelles \\
-4.3 & Tests fonctionnels & Vérification des KPIs par rapport aux besoins & Taux défaut = 30~\%~; PREVIOUSYEAR fonctionnel \\
+
+% ========== PHASE 4 ==========
+\multicolumn{4}{c}{\textbf{\large Phase 4 : Tests \& Validation}} \\
 \midrule
-\textbf{5} & \textbf{Livrables Finaux} & Rapport et soutenance & Remise et soutenance validées \\
+4 & Tests \& Validation & Vérification de la conformité aux besoins & 0 anomalie critique ouverte \\
+4.1 & Tests unitaires ETL & Vérification de chaque composant SSIS & Tableau de tests rempli \\
+4.2 & Tests intégration & Vérification bout-en-bout pipeline → dashboard & Dashboard alimenté par données réelles \\
+4.3 & Tests fonctionnels & Vérification des KPIs par rapport aux besoins & Taux défaut = 30\%, PREVIOUSYEAR fonctionnel \\
+\midrule
+
+% ========== PHASE 5 ==========
+\multicolumn{4}{c}{\textbf{\large Phase 5 : Livrables Finaux}} \\
+\midrule
+5 & Livrables Finaux & Rapport et soutenance & Remise et soutenance validées \\
 5.1 & Rapport technique & Document complet avec captures d'écran & Rapport soumis avant deadline \\
 5.2 & Soutenance orale & Démonstration live du pipeline & Pipeline F5 en direct devant le jury \\
-\bottomrule
-\end{tabularx}
-\end{table}
 
+\end{longtable}
 \subsection{Représentation graphique du WBS}
 
 \begin{figure}[H]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tikzpicture}[
-  root/.style={rectangle,rounded corners=5pt,draw=primary,fill=primary,
-               text=white,font=\bfseries\small,minimum width=4cm,
-               minimum height=0.85cm,align=center},
-  lvl1/.style={rectangle,rounded corners=4pt,draw=primary,fill=primary!15,
-               font=\small\bfseries\color{primary},minimum width=2.6cm,
-               minimum height=0.8cm,align=center},
-  lvl2/.style={rectangle,draw=darkgray,fill=lightgray,font=\scriptsize,
-               minimum width=2.4cm,minimum height=0.7cm,align=center},
-  arr/.style={draw=primary,thick}
+  root/.style={rectangle, rounded corners=5pt, draw=primary, fill=primary,
+               text=white, font=\bfseries\small, minimum width=4cm,
+               minimum height=0.85cm, align=center},
+  lvl1/.style={rectangle, rounded corners=4pt, draw=primary, fill=primary!15,
+               font=\small\bfseries\color{primary}, minimum width=2.6cm,
+               minimum height=0.8cm, align=center},
+  lvl2/.style={rectangle, draw=darkgray, fill=lightgray, font=\scriptsize,
+               minimum width=2.3cm, minimum height=0.7cm, align=center},
+  arr/.style={draw=primary, thick}
 ]
+
+  %% ROOT
   \node[root] (r) at (0,0) {RiskSight};
 
-  \node[lvl1] (p1) at (-8,-1.8) {1. Cadrage};
-  \node[lvl1] (p2) at (-4,-1.8) {2. Conception};
-  \node[lvl1] (p3) at (0,-1.8)  {3. Développement};
-  \node[lvl1] (p4) at (4.5,-1.8){4. Tests};
-  \node[lvl1] (p5) at (8,-1.8)  {5. Livrables};
+  %% LEVEL 1
+  \node[lvl1] (p1) at (-20, -3.5) {1. Cadrage};
+  \node[lvl1] (p2) at (-11, -3.5) {2. Conception};
+  \node[lvl1] (p3) at (0,   -3.5) {3. Développement};
+  \node[lvl1] (p4) at (12,  -3.5) {4. Tests};
+  \node[lvl1] (p5) at (20,  -3.5) {5. Livrables};
 
-  \draw[arr] (r)--(p1); \draw[arr] (r)--(p2);
-  \draw[arr] (r)--(p3); \draw[arr] (r)--(p4); \draw[arr] (r)--(p5);
+  \draw[arr] (r) -- (p1);
+  \draw[arr] (r) -- (p2);
+  \draw[arr] (r) -- (p3);
+  \draw[arr] (r) -- (p4);
+  \draw[arr] (r) -- (p5);
 
-  \node[lvl2] at (-9,-3.2) {1.1 Besoins};
-  \node[lvl2] at (-7,-3.2) {1.2 CDC};
-  \node[lvl2] at (-4.8,-3.2) {2.1 DWH};
-  \node[lvl2] at (-3.2,-3.2) {2.2 Pipeline};
-  \node[lvl2] at (-1.5,-3.2) {3.1 SQL Server};
-  \node[lvl2] at (0,-3.2) {3.2 SSIS T1};
-  \node[lvl2] at (1.5,-3.2) {3.3 SSIS T2};
-  \node[lvl2] at (3.5,-3.2) {3.4 PBI};
-  \node[lvl2] at (5,-3.2) {3.5 PQ};
-  \node[lvl2] at (6.5,-3.2) {4.1 Tests};
-  \node[lvl2] at (8.5,-3.2) {4.2 Intégr.};
-  \node[lvl2] at (10,-3.2) {4.3 Fonct.};
+  %% LEVEL 2 — Cadrage
+  \node[lvl2] (c1) at (-22.5, -6.5) {1.1 Besoins};
+  \node[lvl2] (c2) at (-18,   -6.5) {1.2 CDC};
+  \draw[arr] (p1) -- (c1);
+  \draw[arr] (p1) -- (c2);
 
-  \draw[arr] (p1)--(-9,-2.6); \draw[arr] (p1)--(-7,-2.6);
-  \draw[arr] (p2)--(-4.8,-2.6); \draw[arr] (p2)--(-3.2,-2.6);
-  \draw[arr] (p3)--(-1.5,-2.6); \draw[arr] (p3)--(0,-2.6);
-  \draw[arr] (p3)--(1.5,-2.6); \draw[arr] (p3)--(3.5,-2.6);
-  \draw[arr] (p3)--(5,-2.6);
-  \draw[arr] (p4)--(6.5,-2.6); \draw[arr] (p4)--(8.5,-2.6);
-  \draw[arr] (p4)--(10,-2.6);
-\end{tikzpicture}
+  %% LEVEL 2 — Conception
+  \node[lvl2] (d1) at (-13.5, -6.5) {2.1 DWH};
+  \node[lvl2] (d2) at (-9,    -6.5) {2.2 Pipeline};
+  \draw[arr] (p2) -- (d1);
+  \draw[arr] (p2) -- (d2);
+
+  %% LEVEL 2 — Développement
+  \node[lvl2] (e1) at (-6,  -6.5) {3.1 SQL Server};
+  \node[lvl2] (e2) at (-3,  -6.5) {3.2 SSIS T1};
+  \node[lvl2] (e3) at (0,   -6.5) {3.3 SSIS T2};
+  \node[lvl2] (e4) at (3.5, -6.5) {3.4 PBI};
+  \node[lvl2] (e5) at (7,   -6.5) {3.5 PQ};
+  \draw[arr] (p3) -- (e1);
+  \draw[arr] (p3) -- (e2);
+  \draw[arr] (p3) -- (e3);
+  \draw[arr] (p3) -- (e4);
+  \draw[arr] (p3) -- (e5);
+
+  %% LEVEL 2 — Tests
+  \node[lvl2] (t1) at (9.5,  -6.5) {4.1 Tests};
+  \node[lvl2] (t2) at (13,   -6.5) {4.2 Intégr.};
+  \node[lvl2] (t3) at (16.5, -6.5) {4.3 Fonct.};
+  \draw[arr] (p4) -- (t1);
+  \draw[arr] (p4) -- (t2);
+  \draw[arr] (p4) -- (t3);
+
+\end{tikzpicture}%
+}
 \caption{WBS du projet RiskSight~\cite{pmbok,cdc_atlas}}
 \label{fig:wbs}
 \end{figure}
-
 % -----------------------------------------------------------
 \section{Planification Détaillée et Diagramme de Gantt}
 % -----------------------------------------------------------
@@ -1741,34 +1814,34 @@ Code & Phase / Livrable & Description & Critère de complétion \\
 \centering
 \caption{Tableau des tâches du projet RiskSight}
 \label{tab:taches}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{p{0.7cm} X p{4cm} p{1.5cm} p{1.5cm} p{1.5cm}}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{6pt}
+\begin{tabularx}{\textwidth}{>{\RaggedRight}p{1cm} >{\RaggedRight}p{3.2cm} >{\RaggedRight}p{2.5cm} >{\RaggedRight}p{2.2cm} >{\RaggedRight}p{1.5cm} >{\RaggedRight}p{2.5cm}}
 \toprule
 \rowcolor{primary!12}
-Code & Tâche & Description & Antério-rité & Durée (j) & Respon-sable \\
+\textbf{Code} & \textbf{Tâche} & \textbf{Description} & \textbf{Antériorité} & \textbf{Durée (j)} & \textbf{Responsable} \\
 \midrule
 A & Analyse des besoins & Recueil et clarification & --- & 4 & Binôme \\
-B & Rédaction CDC & Formalisation exigences & A & 3 & Binôme \\
+B & Rédaction CDC & Formalisation des exigences & A & 3 & Binôme \\
 C & Schéma en étoile DWH & Modélisation dimensionnelle & B & 3 & Rania \\
 D & Architecture technique & Choix stack et flux ETL & B & 2 & Binôme \\
-E & Création BDD SQL Server & 6~tables CREATE TABLE & C,D & 2 & Rania \\
-F & Pipeline SSIS Tâche~1 & Chargement dimensions & E & 5 & Rania \\
-G & Pipeline SSIS Tâche~2 & Chargement table de faits & F & 3 & Rania \\
-H & Dashboard Power~BI & 3~pages + mesures DAX & E & 7 & Imane \\
+E & Création BDD SQL Server & Création des 6 tables & C, D & 2 & Rania \\
+F & Pipeline SSIS Tâche 1 & Chargement des dimensions & E & 5 & Rania \\
+G & Pipeline SSIS Tâche 2 & Chargement de la table de faits & F & 3 & Rania \\
+H & Dashboard Power BI & 3 pages avec mesures DAX & E & 7 & Imane \\
 I & Implémentation Power Query & ETL alternatif & H & 3 & Imane \\
-J & Tests et validation & Unitaires + intégration + fonc. & G,I & 4 & Binôme \\
-K & Rapport technique & Rédaction complète + captures & J & 6 & Binôme \\
-L & Préparation soutenance & Démo live + présentation & K & 2 & Binôme \\
+J & Tests et validation & Unitaires, intégration, fonct. & G, I & 4 & Binôme \\
+K & Rapport technique & Rédaction complète & J & 6 & Binôme \\
+L & Préparation soutenance & Démo live et présentation & K & 2 & Binôme \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \subsection{Diagramme de Gantt}
+\subsection{Diagramme de Gantt}
 \begin{figure}[H]
   \centering
-  % Remplacez 'gantt' par le nom exact de votre fichier image (sans l'extension)
-  % Assurez-vous que l'image est placée dans votre dossier de projet (ou dans le dossier 'figures')
-  %\includegraphics[width=\textwidth]{figures/gantt} 
+  \includegraphics[width=\textwidth]{figures/gantt}
   \caption{Diagramme de Gantt prévisionnel du projet RiskSight~\cite{cdc_atlas,cours_gp}}
   \label{fig:gantt}
 \end{figure}
@@ -1798,34 +1871,161 @@ La matrice RACI formalise les responsabilités de chaque acteur pour chaque
 activité~\cite{pmbok,cours_gp}. Elle garantit qu'aucune tâche n'est sans
 responsable et qu'aucun responsable n'est surchargé.
 
-\begin{table}[H]
-\centering
-\caption{Matrice RACI du projet RiskSight}
-\label{tab:raci}
-\footnotesize
-\renewcommand{\arraystretch}{1.4}
-\begin{tabular}{lcccccc}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{6pt}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{5cm} cccccc}
+\caption{Matrice RACI du projet RiskSight} \\
 \toprule
 \rowcolor{primary!12}
-Activité / Livrable & Chef projet & Dev Backend & Dev BI & Encadrant & Prestataire & Client \\
+\textbf{Activité / Livrable} & 
+\textbf{Chef} & 
+\textbf{Dev} & 
+\textbf{Dev} & 
+\textbf{Enca-} & 
+\textbf{Pres-} & 
+\textbf{Client} \\
+\rowcolor{primary!12}
+& 
+\textbf{projet} & 
+\textbf{Back.} & 
+\textbf{BI} & 
+\textbf{drant} & 
+\textbf{tataire} & 
+\\
 \midrule
-Analyse des besoins          & A & C & C & C & I & R \\
-Rédaction cahier des charges & R/A & C & C & C & I & C \\
-Architecture technique       & A & R & C & C & I & I \\
-Pipeline SSIS (Tâches 1\&2)  & A & R & I & I & C & I \\
-Data Warehouse SQL Server    & A & R & C & I & C & I \\
-Dashboard Power BI (3 pages) & A & C & R & I & I & C \\
-Implémentation Power Query   & A & C & R & I & I & I \\
-Tests et validation          & A & R & R & C & I & C \\
-Déploiement Power BI Service & A & C & C & I & R & I \\
-Rapport technique            & A & R & R & C & I & I \\
-Soutenance orale             & A & R & R & R & I & I \\
+\endfirsthead
+
+\multicolumn{7}{c}{\textbf{\textit{Suite de la matrice RACI}}} \\
+\toprule
+\rowcolor{primary!12}
+\textbf{Activité / Livrable} & 
+\textbf{Chef} & 
+\textbf{Dev} & 
+\textbf{Dev} & 
+\textbf{Enca-} & 
+\textbf{Pres-} & 
+\textbf{Client} \\
+\rowcolor{primary!12}
+& 
+\textbf{projet} & 
+\textbf{Back.} & 
+\textbf{BI} & 
+\textbf{drant} & 
+\textbf{tataire} & 
+\\
+\midrule
+\endhead
+
 \bottomrule
 \multicolumn{7}{l}{\footnotesize
-  R = Responsible (réalise) \quad A = Accountable (responsable final) \quad
-  C = Consulted (consulté) \quad I = Informed (informé)}
-\end{tabular}
-\end{table}
+  \textbf{R} = Responsible \quad 
+  \textbf{A} = Accountable \quad 
+  \textbf{C} = Consulted \quad 
+  \textbf{I} = Informed} \\
+\endfoot
+
+% ── Lignes alternées ──────────────────────────────────────
+\rowcolor{white}
+Analyse des besoins & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{blue!10}C & 
+\cellcolor{blue!10}C & 
+\cellcolor{blue!10}C & 
+\cellcolor{gray!10}I & 
+\cellcolor{orange!20}R \\
+
+\rowcolor{gray!8}
+Rédaction cahier des charges & 
+\cellcolor{green!20}\textbf{R/A} & 
+\cellcolor{blue!10}C & 
+\cellcolor{blue!10}C & 
+\cellcolor{blue!10}C & 
+\cellcolor{gray!10}I & 
+\cellcolor{blue!10}C \\
+
+\rowcolor{white}
+Architecture technique & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{orange!20}R & 
+\cellcolor{blue!10}C & 
+\cellcolor{blue!10}C & 
+\cellcolor{gray!10}I & 
+\cellcolor{gray!10}I \\
+
+\rowcolor{gray!8}
+Pipeline SSIS (Tâches 1\&2) & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{orange!20}R & 
+\cellcolor{gray!10}I & 
+\cellcolor{gray!10}I & 
+\cellcolor{blue!10}C & 
+\cellcolor{gray!10}I \\
+
+\rowcolor{white}
+Data Warehouse SQL Server & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{orange!20}R & 
+\cellcolor{blue!10}C & 
+\cellcolor{gray!10}I & 
+\cellcolor{blue!10}C & 
+\cellcolor{gray!10}I \\
+
+\rowcolor{gray!8}
+Dashboard Power BI (3 pages) & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{blue!10}C & 
+\cellcolor{orange!20}R & 
+\cellcolor{gray!10}I & 
+\cellcolor{gray!10}I & 
+\cellcolor{blue!10}C \\
+
+\rowcolor{white}
+Implémentation Power Query & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{blue!10}C & 
+\cellcolor{orange!20}R & 
+\cellcolor{gray!10}I & 
+\cellcolor{gray!10}I & 
+\cellcolor{gray!10}I \\
+
+\rowcolor{gray!8}
+Tests et validation & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{orange!20}R & 
+\cellcolor{orange!20}R & 
+\cellcolor{blue!10}C & 
+\cellcolor{gray!10}I & 
+\cellcolor{blue!10}C \\
+
+\rowcolor{white}
+Déploiement Power BI Service & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{blue!10}C & 
+\cellcolor{blue!10}C & 
+\cellcolor{gray!10}I & 
+\cellcolor{orange!20}R & 
+\cellcolor{gray!10}I \\
+
+\rowcolor{gray!8}
+Rapport technique & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{orange!20}R & 
+\cellcolor{orange!20}R & 
+\cellcolor{blue!10}C & 
+\cellcolor{gray!10}I & 
+\cellcolor{gray!10}I \\
+
+\rowcolor{white}
+Soutenance orale & 
+\cellcolor{green!20}\textbf{A} & 
+\cellcolor{orange!20}R & 
+\cellcolor{orange!20}R & 
+\cellcolor{orange!20}R & 
+\cellcolor{gray!10}I & 
+\cellcolor{gray!10}I \\
+
+\end{longtable}
 
 \subsection{Justification des choix critiques}
 
@@ -1967,6 +2167,7 @@ R4 & Bugs en tests & Plan de test avec jeux de données connus & Buffer 2~jours 
 \end{table}
 
 % -----------------------------------------------------------
+\newpage
 \section{Outils de Pilotage et de Suivi}
 % -----------------------------------------------------------
 
@@ -2133,36 +2334,45 @@ BF-10 définis au Chapitre~4.
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-  actor/.style={font=\small,align=center},
+  actor/.style={font=\small,align=center, draw=primary, rectangle, rounded corners,
+                fill=primary!5, minimum width=2cm, minimum height=0.8cm},
   uc/.style={ellipse,draw=primary,fill=primary!10,font=\scriptsize,
-             minimum width=3.2cm,minimum height=0.8cm,align=center},
-  sys/.style={rectangle,draw=darkgray,dashed,minimum width=9cm,
-              minimum height=7cm,font=\small\bfseries\color{darkgray}}
+             minimum width=3.5cm,minimum height=0.9cm,align=center},
+  sys/.style={rectangle,draw=darkgray,dashed,minimum width=16cm,
+              minimum height=10.5cm,font=\small\bfseries\color{darkgray}}
 ]
-  \node[sys] at (5,0) {};
-  \node[font=\small\bfseries\color{darkgray}] at (5,3.3) {Système RiskSight};
+  % Cadre système
+  \node[sys] at (0,0) {};
+  \node[font=\small\bfseries\color{darkgray}] at (0,5) {Système RiskSight};
 
-  \node[uc] (uc1) at (5, 2.5) {Visualiser les KPIs globaux};
-  \node[uc] (uc2) at (5, 1.3) {Analyser le risque par profil};
-  \node[uc] (uc3) at (5, 0.1) {Analyser les tendances temporelles};
-  \node[uc] (uc4) at (5,-1.1) {Filtrer par période / type de crédit};
-  \node[uc] (uc5) at (5,-2.3) {Comparer N / N-1 (DAX PREVIOUSYEAR)};
-  \node[uc] (uc6) at (5,-3.5) {Exécuter le pipeline ETL (SSIS)};
+  % Cas d'utilisation
+  \node[uc] (uc1) at (0, 3.8) {Visualiser les KPIs globaux};
+  \node[uc] (uc2) at (0, 2.6) {Analyser le risque par profil};
+  \node[uc] (uc3) at (0, 1.4) {Analyser les tendances temporelles};
+  \node[uc] (uc4) at (0, 0.2) {Filtrer par période / type de crédit};
+  \node[uc] (uc5) at (0,-1.0) {Comparer N / N-1 (DAX PREVIOUSYEAR)};
+  \node[uc] (uc6) at (0,-2.2) {Exécuter le pipeline ETL (SSIS)};
 
- % \node[actor] (resp) at (-1.5,1.2) {\includegraphics[height=0.8cm]{figures/actor}\\\scriptsize Resp. crédit};
- % \node[actor] (dir)  at (-1.5,-0.5) {\includegraphics[height=0.8cm]{figures/actor}\\\scriptsize Dir. risques};
- % \node[actor] (dg)   at (-1.5,2.8) {\includegraphics[height=0.8cm]{figures/actor}\\\scriptsize Direction gén.};
- % \node[actor] (de)   at (11.5,-3.5) {\includegraphics[height=0.8cm]{figures/actor}\\\scriptsize Data Engineer};
+  % Acteurs (sans images)
+  \node[actor] (resp) at (-6.5, 2.6) {Resp. crédit};
+  \node[actor] (dir)  at (-6.5, 1.0) {Dir. risques};
+  \node[actor] (dg)   at (-6.5, 4.0) {Direction gén.};
+  \node[actor] (de)   at ( 6.5,-2.2) {Data Engineer};
 
-  %\draw (dg)--(uc1); \draw (resp)--(uc1); \draw (resp)--(uc2);
-  %\draw (resp)--(uc3); \draw (resp)--(uc4);
-  %\draw (dir)--(uc2); \draw (dir)--(uc5);
-  %\draw (de)--(uc6);
+  % Flèches
+  \draw (dg)   -- (uc1);
+  \draw (resp) -- (uc1);
+  \draw (resp) -- (uc2);
+  \draw (resp) -- (uc3);
+  \draw (resp) -- (uc4);
+  \draw (dir)  -- (uc2);
+  \draw (dir)  -- (uc5);
+  \draw (de)   -- (uc6);
+
 \end{tikzpicture}
 \caption{Diagramme global des cas d'utilisation de RiskSight}
 \label{fig:uc_global}
 \end{figure}
-
 En l'absence du fichier \texttt{figures/actor.png}, remplacez les
 \texttt{\textbackslash includegraphics} par le code TikZ suivant pour dessiner un
 bonhomme~: \texttt{\textbackslash node[circle,draw,minimum size=0.4cm] at (0,0) \{\};}
@@ -2246,6 +2456,7 @@ Couverture & BF-01, BF-10 (voir §4.2) \\
 \end{table}
 
 % -----------------------------------------------------------
+\newpage
 \section{Modélisation Dynamique}
 % -----------------------------------------------------------
 
@@ -2373,6 +2584,7 @@ a terminé avec succès (BF-01, BF-10).
 \end{figure}
 
 % -----------------------------------------------------------
+\newpage
 \section{Modélisation Statique}
 % -----------------------------------------------------------
 
@@ -2603,10 +2815,7 @@ conformes au modèle relationnel défini au Chapitre~6.
 
 \begin{figure}[H]
 \centering
-\fbox{\parbox{13cm}{\centering\vspace{2cm}
-  \textit{[Insérer ici la capture SSMS --- Vue des 6~tables dans atlas\_dwh]}\\
-  Commande~: \texttt{\textbackslash includegraphics[width=13cm]\{figures/ssms\_tables\}}
-  \vspace{2cm}}}
+\includegraphics[width=13cm]{figures/ssms_tables}
 \caption{Vue des 6~tables du Data Warehouse dans SSMS}
 \label{fig:ssms_tables}
 \end{figure}
@@ -2642,10 +2851,7 @@ pointant vers l'instance locale \texttt{.\textbackslash SQLEXPRESS}.
 
 \begin{figure}[H]
 \centering
-\fbox{\parbox{13cm}{\centering\vspace{2cm}
-  \textit{[Insérer ici la capture --- Connection Managers SSIS]}\\
-  Commande~: \texttt{\textbackslash includegraphics[width=13cm]\{figures/ssis\_connections\}}
-  \vspace{2cm}}}
+\includegraphics[width=13cm]{figures/ssis_connections}
 \caption{Configuration des connexions dans SSIS (Visual Studio 2022)}
 \label{fig:ssis_connections}
 \end{figure}
@@ -2660,10 +2866,7 @@ l'Union All réunit les deux flux, puis le Multicast les distribue vers les
 
 \begin{figure}[H]
 \centering
-\fbox{\parbox{13cm}{\centering\vspace{2.5cm}
-  \textit{[Insérer ici la capture --- Canvas SSIS Tâche~1]}\\
-  Commande~: \texttt{\textbackslash includegraphics[width=13cm]\{figures/ssis\_task1\}}
-  \vspace{2.5cm}}}
+\includegraphics[width=13cm]{figures/ssis_task1}
 \caption{Canvas de la Tâche~1 SSIS --- Chargement des dimensions~\cite{guide_etl}}
 \label{fig:ssis_task1}
 \end{figure}
@@ -2694,7 +2897,7 @@ Recherche Profil  & atlas\_dwh.dim\_profil\_financier & id\_profil\_lkp \\
 \bottomrule
 \end{tabularx}
 \end{table}
-
+\newpage
 \subsection{Sprint 5--6 --- Dashboard Power BI et Power Query}
 
 \textbf{Objectif}~: développer les 3~pages du dashboard et l'ETL alternatif.
@@ -2754,10 +2957,7 @@ Cas d'usage optimal & Production, volumes importants & Prototypage rapide \\
 
 \begin{figure}[H]
 \centering
-\fbox{\parbox{13cm}{\centering\vspace{3cm}
-  \textit{[Insérer ici la capture --- Page~1 Power~BI~: Vue Executive]}\\
-  Commande~: \texttt{\textbackslash includegraphics[width=\textbackslash textwidth]\{figures/pbi\_page1\}}
-  \vspace{3cm}}}
+\includegraphics[width=\textwidth]{figures/pbi_page1}
 \caption{Page~1 du Dashboard RiskSight --- Vue Executive (KPIs globaux)}
 \label{fig:pbi_page1}
 \end{figure}
@@ -2774,10 +2974,7 @@ fonctionnels BF-07 et BF-09.
 
 \begin{figure}[H]
 \centering
-\fbox{\parbox{13cm}{\centering\vspace{3cm}
-  \textit{[Insérer ici la capture --- Page~2 Power~BI~: Analyse du Risque]}\\
-  Commande~: \texttt{\textbackslash includegraphics[width=\textbackslash textwidth]\{figures/pbi\_page2\}}
-  \vspace{3cm}}}
+\includegraphics[width=\textwidth]{figures/pbi_page2}
 \caption{Page~2 du Dashboard RiskSight --- Analyse du risque par profil client}
 \label{fig:pbi_page2}
 \end{figure}
@@ -2793,10 +2990,7 @@ Cette page couvre BF-02, BF-03, BF-04, BF-05.
 
 \begin{figure}[H]
 \centering
-\fbox{\parbox{13cm}{\centering\vspace{3cm}
-  \textit{[Insérer ici la capture --- Page~3 Power~BI~: Analyse Temporelle]}\\
-  Commande~: \texttt{\textbackslash includegraphics[width=\textbackslash textwidth]\{figures/pbi\_page3\}}
-  \vspace{3cm}}}
+\includegraphics[width=\textwidth]{figures/pbi_page3}
 \caption{Page~3 du Dashboard RiskSight --- Analyse temporelle du risque crédit}
 \label{fig:pbi_page3}
 \end{figure}
@@ -2807,6 +3001,7 @@ mensuelle identifie les périodes de demande élevée. La mesure DAX
 répondant ainsi au besoin fonctionnel BF-06.
 
 % -----------------------------------------------------------
+\newpage
 \section{Tests et Validation Technique}
 % -----------------------------------------------------------
 
@@ -3063,6 +3258,7 @@ Bloc BMC & Contenu \\
 \end{table}
 
 % -----------------------------------------------------------
+\newpage
 \section{Étude de Faisabilité Technique}
 % -----------------------------------------------------------
 
@@ -3078,7 +3274,8 @@ Bloc BMC & Contenu \\
 \rowcolor{primary!12}
 Matériel & Justification & Quantité & Coût (DH) \\
 \midrule
-Laptop développement (16~Go RAM, SSD) & Exécution locale SQL~Server + SSIS + Power~BI & 2 & 17~000* \\
+Laptop développement
+(16~Go RAM, SSD) & Exécution locale SQL~Server + SSIS + Power~BI & 2 & 17~000* \\
 Disque externe 1~To & Sauvegarde du pipeline .dtsx et BDD & 1 & 450 \\
 Connexion Internet haut débit & Publication Power~BI Service & 1~abonnement & 200/mois \\
 \midrule
@@ -3159,6 +3356,7 @@ Publicité LinkedIn (B2B ciblée) & 1~campagne semestrielle & 1~500 \\
 \end{table}
 
 % -----------------------------------------------------------
+\newpage
 \section{Étude de Faisabilité Financière}
 % -----------------------------------------------------------
 
@@ -3340,6 +3538,7 @@ dépôt d'auteur auprès de l'OMPIC (Office Marocain de la Propriété Industrie
 et Commerciale) sera effectuée avant toute commercialisation.
 
 % -----------------------------------------------------------
+\newpage
 \section{Scalabilité et Roadmap Produit}
 % -----------------------------------------------------------
 
