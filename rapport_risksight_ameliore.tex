@@ -165,17 +165,17 @@ qui ont contribué, de près ou de loin, à la réalisation de ce projet de
 fin d'année.
 
 Nos remerciements s'adressent en premier lieu à notre encadrant,
-\textbf{Pr. Mouad Banane}, pour sa disponibilité, ses conseils avisés
+\textbf{Pr. Mouad \newline Banane}, pour sa disponibilité, ses conseils avisés
 et son suivi rigoureux tout au long de ce travail. Sa guidance nous a
 permis de structurer notre démarche et d'approfondir notre compréhension
 des enjeux de la Business Intelligence appliquée au risque crédit.
 
 Nous adressons également nos sincères remerciements à
-\textbf{Pr. Yousra Aït Larbi}, professeure d'entrepreneuriat, pour
+\textbf{Pr.Yousra AIT LARBI}, professeure d'entrepreneuriat, pour
 son accompagnement dans la dimension entrepreneuriale de ce projet
 et pour nous avoir encouragés à ancrer notre solution dans une
 réalité de marché concrète.
-\textbf{Pr. gestion projet}, professeure de
+\textbf{Pr.Dounia MONSIF}, professeure de
 gestion de projet, pour ses enseignements méthodologiques qui nous
 ont permis de structurer et de \newline planifier efficacement les différentes
 phases de ce travail.
@@ -943,15 +943,15 @@ scoring crédit pour les microfinances marocaines.
 \rowcolor{primary!12}
 \textbf{Force} & \textbf{Analyse} & \textbf{Niveau} \\
 \midrule
-Rivalité concurrentielle & Aucun concurrent direct local sur le segment microfinance marocaine. Solutions internationales ne ciblent pas ce marché. Seule concurrence indirecte : Excel et pratiques manuelles. & \textcolor{green}{\textbf{FAIBLE}} \\
+Rivalité \newline concurrentielle & Aucun concurrent direct local sur le segment microfinance marocaine. Solutions internationales ne ciblent pas ce marché. Seule concurrence indirecte : Excel et pratiques manuelles. & \textcolor{green}{\textbf{FAIBLE}} \\
 \midrule
-Menace des nouveaux entrants & Barrière technique réelle (chaîne BI complète, expertise SQL/Power BI). Coût d'acquisition client élevé dans le secteur bancaire. Outils low-code émergents pourraient abaisser la barrière à terme. & \textcolor{orange}{\textbf{MODÉRÉE}} \\
+Menace des \newline nouveaux entrants & Barrière technique réelle (chaîne BI complète, expertise SQL/Power BI). Coût d'acquisition client élevé dans le secteur bancaire. Outils low-code émergents pourraient abaisser la barrière à terme. & \textcolor{orange}{\textbf{MODÉRÉE}} \\
 \midrule
 Pouvoir des fournisseurs & Dépendance à Microsoft (Power BI, SQL Server, SSIS). Atténuée par les alternatives open source (PostgreSQL, Metabase). & \textcolor{orange}{\textbf{MODÉRÉE}} \\
 \midrule
 Pouvoir des clients & Microfinances et coopératives ont peu d'alternatives locales. Risque de churn si le ROI n'est pas démontré rapidement. & \textcolor{green}{\textbf{FAIBLE}} \\
 \midrule
-Menace des substituts & Principal substitut : Excel + analyse manuelle (inertie forte). Substitut secondaire : recruter un data analyst interne (12\,000--20\,000 DH/mois contre 4\,500 DH/mois notre offre Pro). & \textcolor{orange}{\textbf{MODÉRÉE}} \\
+Menace des \newline substituts & Principal substitut : Excel + analyse manuelle (inertie forte). Substitut secondaire : recruter un data analyst interne (12\,000--20\,000 DH/mois contre 4\,500 DH/mois notre offre Pro). & \textcolor{orange}{\textbf{MODÉRÉE}} \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1462,8 +1462,8 @@ BF-03 & Responsable crédit & Filtrer les indicateurs par période, type de cré
 BF-04 & Directeur risques & Identifier les segments d'emprunteurs à risque élevé & Dashboard Page~2 \\
 BF-05 & Directeur risques & Analyser la corrélation entre historique crédit et taux de défaut & Dashboard Page~2 \\
 BF-06 & Directeur risques & Comparer le taux de défaut entre les années N et N-1 & Mesure DAX \\
-BF-07 & Direction générale & Consulter les KPIs globaux du portefeuille crédit & Dashboard Page~1 \\
-BF-08 & Direction générale & Suivre l'évolution temporelle du risque crédit (2020--2024) & Dashboard Page~3 \\
+BF-07 & Direction \newline générale & Consulter les KPIs globaux du portefeuille crédit & Dashboard Page~1 \\
+BF-08 & Direction  \newline générale & Suivre l'évolution temporelle du risque crédit (2020--2024) & Dashboard Page~3 \\
 BF-09 & Tous & Accéder au dashboard via URL sans installation & Power~BI Service \\
 BF-10 & Tous & Standardiser les données clients en entrée (28~colonnes, UTF-8) & Pipeline ETL \\
 \bottomrule
@@ -1491,9 +1491,9 @@ Priorité & Fonctionnalité & BF associé \\
 \textbf{Should} & Tableau de bord temporel (saisonnalité, tendances) & BF-08 \\
 \textbf{Should} & Double implémentation ETL (SSIS + Power Query) & BF-01 \\
 \textbf{Could} & Module de mapping automatique des colonnes clients & BF-10 \\
-\textbf{Could} & Interface web d'upload autonome & Hors périmètre V1 \\
-\textbf{Won't} & Modèle Machine Learning intégré & V3 uniquement \\
-\textbf{Won't} & Application mobile & Hors périmètre \\
+\textbf{Could} & Interface web d'upload autonome & Hors \newline périmètre V1 \\
+\textbf{Won't} & Modèle Machine Learning intégré & V3 \newline uniquement \\
+\textbf{Won't} & Application mobile & Hors \newline périmètre \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1615,8 +1615,8 @@ gérées via les contraintes de précédence du Control Flow SSIS.
 \rowcolor{primary!12}
 BF/BNF & Description & Module / Composant & Test de validation \\
 \midrule
-BF-01 & Chargement automatique CSV & Pipeline SSIS Tâche~1 & Vérification COUNT(*) = 1~000 \\
-BF-02 & Taux de défaut par profil & Dashboard Page~2, mesure Taux\_Defaut & Vérification valeur = 30~\% \\
+BF-01 & Chargement \newline automatique CSV & Pipeline SSIS Tâche~1 & Vérification COUNT(*) = 1~000 \\
+BF-02 & Taux de défaut par \newline profil & Dashboard Page~2, mesure Taux\_Defaut & Vérification valeur = 30~\% \\
 BF-06 & Comparaison N/N-1 & Mesure DAX Taux\_Defaut\_PY & Comparaison manuelle Excel \\
 BF-07 & KPIs globaux & Dashboard Page~1 & Vérification visuels \\
 BF-09 & Accès URL & Power~BI Service & Accès depuis navigateur externe \\
@@ -1686,6 +1686,13 @@ mais aussi \textit{comment} elle va travailler pour y parvenir.
 La WBS (Work Breakdown Structure) décompose le projet RiskSight en livrables
 concrets et mesurables, organisés de façon hiérarchique. Chaque nœud de la WBS
 correspond à un livrable réel dont la production peut être vérifiée~\cite{pmbok}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/wbs_risksight.png}
+\caption{Work Breakdown Structure (WBS) du projet RiskSight}
+\label{fig:wbs_image}
+\end{figure}
+
 
 \begin{longtable}{>{\centering\arraybackslash}p{1.2cm} >{\bfseries\RaggedRight}p{4cm} >{\RaggedRight}p{4cm} >{\RaggedRight}p{4cm}}
 \caption{WBS de RiskSight --- Décomposition des livrables par phase} \\
@@ -1708,9 +1715,9 @@ correspond à un livrable réel dont la production peut être vérifiée~\cite{p
 % ========== PHASE 1 ==========
 \multicolumn{4}{c}{\textbf{\large Phase 1 : Cadrage}} \\
 \midrule
-1 & Cadrage & Définition du \newline périmètre et \newline formalisation du projet & CDC validé par l'encadrant \\
-1.1 & Analyse des besoins & Recueil et clarification des exigences & Document de besoins signé \\
-1.2 & Cahier des charges & Formalisation du \newline périmètre, contraintes, livrables & CDC version 1.0 livrée \\
+1 & Cadrage & Définition du \newline périmètre et \newline formalisation du projet & CDC validé par \newline l'encadrant \\
+1.1 & Analyse des \newline besoins & Recueil et clarification des exigences & Document de besoins signé \\
+1.2 & Cahier des charges & Formalisation du \newline périmètre, contraintes, livrables & CDC version 1.0 \newline livrée \\
 \midrule
 
 % ========== PHASE 2 ==========
@@ -2093,40 +2100,7 @@ R10 & Retard livraison design Power~BI & 2 & 3 & \textbf{6} & Maquettes livrées
 \end{tabularx}
 \end{table}
 
-\subsection{Matrice probabilité/impact}
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-  \draw[fill=dangercolor!20,draw=dangercolor,thick] (3,3) rectangle (5,5);
-  \draw[fill=secondary!25,draw=secondary,thick] (1,3) rectangle (3,5);
-  \draw[fill=secondary!25,draw=secondary,thick] (3,1) rectangle (5,3);
-  \draw[fill=successcolor!15,draw=successcolor,thick] (1,1) rectangle (3,3);
-  \draw[->] (0,0)--(5.5,0) node[right]{\small Impact};
-  \draw[->] (0,0)--(0,5.5) node[above]{\small Probabilité};
-  \foreach \x in {1,2,3,4,5} {
-    \node[below,font=\tiny] at (\x,0) {\x};
-    \node[left,font=\tiny]  at (0,\x) {\x};
-  }
-  \node[font=\tiny\bfseries\color{dangercolor}] at (4,4) {CRITIQUE};
-  \node[font=\tiny\color{secondary}] at (2,4) {Élevé};
-  \node[font=\tiny\color{secondary}] at (4,2) {Élevé};
-  \node[font=\tiny\color{successcolor}] at (2,2) {Faible};
-  % Placement des risques
-  \node[circle,fill=dangercolor,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (5,5) {R1};
-  \node[circle,fill=dangercolor,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (5,4) {R2};
-  \node[circle,fill=secondary!80,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (4,4) {R3};
-  \node[circle,fill=secondary!80,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (4.2,4.2) {R4};
-  \node[circle,fill=secondary!80,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (5,3) {R5};
-  \node[circle,fill=secondary!80,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (4,3) {R6};
-  \node[circle,fill=secondary!80,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (4.2,3) {R7};
-  \node[circle,fill=successcolor!80,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (5,2) {R8};
-  \node[circle,fill=successcolor!80,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (5.2,2) {R9};
-  \node[circle,fill=successcolor!80,text=white,inner sep=1.5pt,font=\tiny\bfseries] at (3,2) {R10};
-\end{tikzpicture}
-\caption{Carte de chaleur des risques du projet RiskSight~\cite{cours_gp,pmbok}}
-\label{fig:heatmap}
-\end{figure}
 
 \subsection{Analyse Pareto --- 20\% des risques = 80\% des impacts}
 
@@ -2257,11 +2231,10 @@ qui découle directement de cette planification.
 \section{Introduction}
 
 Ce chapitre modélise le système RiskSight avant sa construction. Il présente
-successivement l'architecture globale, la modélisation des cas d'utilisation (UML),
-la modélisation dynamique (diagrammes de séquence et d'activité), la modélisation
-statique (schéma en étoile, modèle relationnel, dictionnaire de données) et les
-maquettes UX/UI du dashboard. Chaque diagramme est suivi d'une explication et est
-relié aux besoins fonctionnels définis au Chapitre~4.
+successivement l'architecture globale, la modélisation des cas d'utilisation,
+la modélisation statique (schéma en étoile, modèle relationnel, dictionnaire
+de données) et les maquettes UX/UI du dashboard. Chaque section est reliée
+aux besoins fonctionnels définis au Chapitre~4.
 
 % -----------------------------------------------------------
 \section{Architecture Globale du Système}
@@ -2275,6 +2248,22 @@ la couche Stockage (Data Warehouse SQL Server) et la couche Présentation
 (dashboard Power~BI). Cette séparation des responsabilités garantit la maintenabilité
 et la scalabilité du système~\cite{kimball,cdc_atlas}.
 
+Le pipeline ETL a été implémenté selon \textbf{deux méthodes complémentaires}~:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{Méthode~1 --- SSIS (SQL Server Integration Services)}~: pipeline
+    industriel développé sous Visual Studio~2022, composé de 2~tâches séquentielles
+    avec contrainte de précédence. Cette méthode assure la robustesse des chargements
+    et la gestion des clés étrangères~;
+  \item \textbf{Méthode~2 --- Power Query (Power~BI Desktop)}~: transformation
+    directe des données CSV dans Power~BI via l'éditeur Power Query. Cette méthode
+    a permis de valider et croiser les résultats obtenus par SSIS, en appliquant
+    les mêmes règles de transformation (colonnes calculées, typage, nettoyage).
+\end{itemize}
+
+Les deux méthodes aboutissent au même schéma en étoile et aux mêmes résultats
+analytiques, ce qui confirme la cohérence et la fiabilité du pipeline de données.
+
 \subsection{Architecture matérielle / infrastructure}
 
 \begin{table}[H]
@@ -2287,50 +2276,29 @@ et la scalabilité du système~\cite{kimball,cdc_atlas}.
 \rowcolor{primary!12}
 Composant & Technologie & Justification \\
 \midrule
-Source de données & CSV (UTF-8 BOM) & Format universel compatible avec tous les outils de la chaîne \\
-ETL (Méthode~1) & SSIS / Visual Studio 2022 & Standard industriel~; gestion robuste des erreurs et FK \\
-ETL (Méthode~2) & Power Query (Power~BI Desktop) & Validation croisée des transformations \\
-Data Warehouse & SQL Server 2022 Express & Licence gratuite~; schéma en étoile natif~; contraintes FK \\
-Administration & SSMS & Interface standard de gestion SQL~Server \\
-Visualisation & Power~BI Desktop + Service & Leader BI~; mesures DAX avancées~; publication URL \\
-Versioning & GitHub (repo privé) & Collaboration et historique des modifications \\
+Source de données  & CSV (UTF-8 BOM)                & Format universel compatible avec tous les outils de la chaîne \\
+ETL (Méthode~1)    & SSIS / Visual Studio 2022      & Standard industriel~; gestion robuste des erreurs et FK \\
+ETL (Méthode~2)    & Power Query (Power~BI Desktop) & Validation croisée des transformations \\
+Data Warehouse     & SQL Server 2022 Express        & Licence gratuite~; schéma en étoile natif~; contraintes FK \\
+Administration     & SSMS                           & Interface standard de gestion SQL~Server \\
+Visualisation      & Power~BI Desktop + Service     & Leader BI~; mesures DAX avancées~; publication URL \\
+Versioning         & GitHub (repo privé)            & Collaboration et historique des modifications \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\subsection{Schéma d'architecture global annoté}
+\subsection{Preuve --- Transformations Power Query}
+
+La Figure~\ref{fig:power_query} illustre les étapes de transformation appliquées
+dans Power Query lors du chargement du fichier CSV~: typage des colonnes,
+création des colonnes calculées et correspondance avec le schéma en étoile.
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[
-  layer/.style={rectangle,rounded corners=6pt,draw=primary,fill=primary!10,
-                text width=3cm,align=center,minimum height=2.2cm,
-                font=\small\bfseries,drop shadow},
-  sub/.style={font=\scriptsize,text=darkgray,align=center,text width=3cm},
-  arr/.style={-Stealth,very thick,color=secondary,line width=2pt},
-  lbl/.style={font=\tiny\color{darkgray},above}
-]
-  \node[layer] (src) {Source CSV};
-  \node[sub,below=0.1cm of src]{1\,000 lignes\\28~colonnes\\UTF-8~BOM};
-  \node[layer,right=1.4cm of src] (etl) {ETL SSIS};
-  \node[sub,below=0.1cm of etl]{Visual Studio~2022\\Pipeline .dtsx\\2~tâches};
-  \node[layer,right=1.4cm of etl] (dwh) {Data Warehouse\\SQL~Server};
-  \node[sub,below=0.1cm of dwh]{Schéma étoile\\5~tables + log\\SQL~Server~2022};
-  \node[layer,right=1.4cm of dwh] (pbi) {Dashboard\\Power~BI};
-  \node[sub,below=0.1cm of pbi]{3~pages\\Mesures DAX\\Power~BI~Service};
-  \draw[arr] (src)--(etl) node[lbl,midway]{Extract};
-  \draw[arr] (etl)--(dwh) node[lbl,midway]{Transform \& Load};
-  \draw[arr] (dwh)--(pbi) node[lbl,midway]{Visualize};
-\end{tikzpicture}
-\caption{Architecture BI end-to-end de RiskSight --- 4 couches~\cite{cdc_atlas,kimball}}
-\label{fig:archi_globale}
+\includegraphics[width=0.9\textwidth]{figures/power_query.png}
+\caption{Éditeur Power Query --- Étapes de transformation des données~\cite{cdc_atlas}}
+\label{fig:power_query}
 \end{figure}
-
-La Figure~\ref{fig:archi_globale} illustre les quatre couches de l'architecture.
-Le flux est unidirectionnel~: les données brutes du fichier CSV sont extraites,
-transformées et chargées (ETL) dans le Data Warehouse, puis visualisées dans le
-dashboard. Cette architecture répond aux besoins fonctionnels BF-01, BF-09 et
-BF-10 définis au Chapitre~4.
 
 % -----------------------------------------------------------
 \section{Modélisation des Cas d'Utilisation}
@@ -2349,54 +2317,6 @@ BF-10 définis au Chapitre~4.
     maintient le Data Warehouse.
 \end{itemize}
 
-\subsection{Diagramme global des cas d'utilisation}
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-  actor/.style={font=\small,align=center, draw=primary, rectangle, rounded corners,
-                fill=primary!5, minimum width=2cm, minimum height=0.8cm},
-  uc/.style={ellipse,draw=primary,fill=primary!10,font=\scriptsize,
-             minimum width=3.5cm,minimum height=0.9cm,align=center},
-  sys/.style={rectangle,draw=darkgray,dashed,minimum width=16cm,
-              minimum height=10.5cm,font=\small\bfseries\color{darkgray}}
-]
-  % Cadre système
-  \node[sys] at (0,0) {};
-  \node[font=\small\bfseries\color{darkgray}] at (0,5) {Système RiskSight};
-
-  % Cas d'utilisation
-  \node[uc] (uc1) at (0, 3.8) {Visualiser les KPIs globaux};
-  \node[uc] (uc2) at (0, 2.6) {Analyser le risque par profil};
-  \node[uc] (uc3) at (0, 1.4) {Analyser les tendances temporelles};
-  \node[uc] (uc4) at (0, 0.2) {Filtrer par période / type de crédit};
-  \node[uc] (uc5) at (0,-1.0) {Comparer N / N-1 (DAX PREVIOUSYEAR)};
-  \node[uc] (uc6) at (0,-2.2) {Exécuter le pipeline ETL (SSIS)};
-
-  % Acteurs (sans images)
-  \node[actor] (resp) at (-6.5, 2.6) {Resp. crédit};
-  \node[actor] (dir)  at (-6.5, 1.0) {Dir. risques};
-  \node[actor] (dg)   at (-6.5, 4.0) {Direction gén.};
-  \node[actor] (de)   at ( 6.5,-2.2) {Data Engineer};
-
-  % Flèches
-  \draw (dg)   -- (uc1);
-  \draw (resp) -- (uc1);
-  \draw (resp) -- (uc2);
-  \draw (resp) -- (uc3);
-  \draw (resp) -- (uc4);
-  \draw (dir)  -- (uc2);
-  \draw (dir)  -- (uc5);
-  \draw (de)   -- (uc6);
-
-\end{tikzpicture}
-\caption{Diagramme global des cas d'utilisation de RiskSight}
-\label{fig:uc_global}
-\end{figure}
-En l'absence du fichier \texttt{figures/actor.png}, remplacez les
-\texttt{\textbackslash includegraphics} par le code TikZ suivant pour dessiner un
-bonhomme~: \texttt{\textbackslash node[circle,draw,minimum size=0.4cm] at (0,0) \{\};}
-
 \subsection{Description textuelle des cas d'utilisation principaux}
 
 \subsubsection{CU-01 --- Visualiser les KPIs globaux}
@@ -2411,15 +2331,15 @@ bonhomme~: \texttt{\textbackslash node[circle,draw,minimum size=0.4cm] at (0,0) 
 \rowcolor{primary!12}
 Champ & Description \\
 \midrule
-Identifiant & CU-01 \\
-Nom & Visualiser les KPIs globaux du portefeuille crédit \\
-Acteurs & Responsable crédit, Direction générale \\
-Précondition & Pipeline SSIS exécuté~; dashboard publié sur Power~BI Service~; utilisateur authentifié \\
-Déclencheur & L'utilisateur ouvre l'URL du dashboard dans son navigateur \\
+Identifiant      & CU-01 \\
+Nom              & Visualiser les KPIs globaux du portefeuille crédit \\
+Acteurs          & Responsable crédit, Direction générale \\
+Précondition     & Pipeline ETL exécuté~; dashboard publié sur Power~BI Service~; utilisateur authentifié \\
+Déclencheur      & L'utilisateur ouvre l'URL du dashboard dans son navigateur \\
 \textbf{Flux principal} & 1.~L'utilisateur accède à l'URL Power~BI Service. 2.~Le système charge la Page~1 (Vue Executive). 3.~Les 4~KPIs s'affichent (taux de défaut~30\%, volume total DH, nombre de demandes, montant moyen). 4.~La courbe d'évolution 2020--2024 se génère. 5.~Le treemap répartit les demandes par objet de crédit. \\
-Flux alternatif & A1~: Si la connexion à Power~BI Service échoue $\to$ affichage d'un message d'erreur de connexion. \\
-Post-condition & KPIs affichés correctement~; taux de défaut = 30~\%. \\
-Couverture & BF-07, BF-09 (voir §4.2) \\
+Flux alternatif  & A1~: Si la connexion à Power~BI Service échoue $\to$ affichage d'un message d'erreur de connexion. \\
+Post-condition   & KPIs affichés correctement~; taux de défaut = 30~\%. \\
+Couverture       & BF-07, BF-09 (voir §4.2) \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -2436,16 +2356,16 @@ Couverture & BF-07, BF-09 (voir §4.2) \\
 \rowcolor{primary!12}
 Champ & Description \\
 \midrule
-Identifiant & CU-02 \\
-Nom & Analyser le risque crédit par profil d'emprunteur \\
-Acteurs & Responsable crédit, Directeur des risques \\
-Précondition & Pipeline SSIS exécuté~; 1~000~dossiers chargés dans le DWH \\
-Déclencheur & L'utilisateur navigue vers la Page~2 du dashboard \\
+Identifiant      & CU-02 \\
+Nom              & Analyser le risque crédit par profil d'emprunteur \\
+Acteurs          & Responsable crédit, Directeur des risques \\
+Précondition     & Pipeline ETL exécuté~; 1~000~dossiers chargés dans le DWH \\
+Déclencheur      & L'utilisateur navigue vers la Page~2 du dashboard \\
 \textbf{Flux principal} & 1.~L'utilisateur sélectionne la Page~2 (Analyse du risque). 2.~Le graphique en barres affiche le taux de défaut par statut de compte. 3.~Un second graphique affiche le taux par historique crédit. 4.~L'utilisateur applique un filtre par période ou type de crédit. 5.~Les visuels se mettent à jour dynamiquement. \\
-Flux alternatif & A2~: Si aucun filtre appliqué $\to$ affichage de toutes les données sans restriction. \\
-Exception & E1~: Si le DWH ne contient pas de données $\to$ visuels vides. \\
-Post-condition & Profils risqués identifiés~; corrélation historique crédit visible. \\
-Couverture & BF-02, BF-03, BF-04, BF-05 (voir §4.2) \\
+Flux alternatif  & A2~: Si aucun filtre appliqué $\to$ affichage de toutes les données sans restriction. \\
+Exception        & E1~: Si le DWH ne contient pas de données $\to$ visuels vides. \\
+Post-condition   & Profils risqués identifiés~; corrélation historique crédit visible. \\
+Couverture       & BF-02, BF-03, BF-04, BF-05 (voir §4.2) \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -2462,146 +2382,18 @@ Couverture & BF-02, BF-03, BF-04, BF-05 (voir §4.2) \\
 \rowcolor{primary!12}
 Champ & Description \\
 \midrule
-Identifiant & CU-03 \\
-Nom & Exécuter le pipeline ETL SSIS (chargement complet) \\
-Acteurs & Data Engineer \\
-Précondition & Tables DWH vides (script RESEED exécuté)~; fichier CSV présent \\
-Déclencheur & Appui sur F5 dans Visual Studio / déclenchement du package SSIS \\
+Identifiant      & CU-03 \\
+Nom              & Exécuter le pipeline ETL (chargement complet) \\
+Acteurs          & Data Engineer \\
+Précondition     & Tables DWH vides (script RESEED exécuté)~; fichier CSV présent \\
+Déclencheur      & Lancement du pipeline SSIS (F5) ou chargement via Power Query \\
 \textbf{Flux principal} & 1.~Le Data Engineer ouvre le projet SSIS dans Visual Studio~2022. 2.~Il exécute le script de réinitialisation (DELETE + RESEED). 3.~Il lance le package (F5). 4.~La Tâche~1 charge les 5~dimensions (1~000 lignes chacune). 5.~La contrainte de précédence déclenche la Tâche~2. 6.~La Tâche~2 charge la table de faits (1~000 lignes) via 4~Lookups. 7.~Le package se termine avec le statut Succès. \\
-Exception & E1~: Violation de clé primaire $\to$ script RESEED oublié. E2~: 0~lignes dans fait\_demande\_credit $\to$ Tâches non séquentielles. \\
-Post-condition & COUNT(*) = 1~000 dans chaque table de dimension~; 300 dans log\_defauts. \\
-Couverture & BF-01, BF-10 (voir §4.2) \\
+Exception        & E1~: Violation de clé primaire $\to$ script RESEED oublié. E2~: 0~lignes dans fait\_demande\_credit $\to$ tâches non séquentielles. \\
+Post-condition   & COUNT(*) = 1~000 dans chaque table de dimension~; 300 lignes dans log\_defauts. \\
+Couverture       & BF-01, BF-10 (voir §4.2) \\
 \bottomrule
 \end{tabularx}
 \end{table}
-
-% -----------------------------------------------------------
-\newpage
-\section{Modélisation Dynamique}
-% -----------------------------------------------------------
-
-\subsection{Diagrammes de séquence}
-
-\subsubsection{Séquence CU-03 --- Exécution du pipeline ETL}
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-  obj/.style={rectangle,draw=primary,fill=primary!10,minimum width=2.2cm,
-              minimum height=0.6cm,font=\small\bfseries,align=center},
-  arr/.style={-Stealth,thick,color=primary},
-  ret/.style={-Stealth,thick,color=darkgray,dashed},
-  lif/.style={draw=primary,dashed,thick}
-]
-  \node[obj] (eng) at (0,0) {Data\\Engineer};
-  \node[obj] (vs)  at (3.5,0) {Visual\\Studio};
-  \node[obj] (ssis)at (7,0) {SSIS\\Package};
-  \node[obj] (sql) at (10.5,0) {SQL\\Server};
-
-  \draw[lif] (0,-0.3)--(0,-8);
-  \draw[lif] (3.5,-0.3)--(3.5,-8);
-  \draw[lif] (7,-0.3)--(7,-8);
-  \draw[lif] (10.5,-0.3)--(10.5,-8);
-
-  \draw[arr] (0,-0.8)--(3.5,-0.8) node[midway,above,font=\scriptsize]{Ouvrir projet};
-  \draw[arr] (0,-1.5)--(3.5,-1.5) node[midway,above,font=\scriptsize]{Exécuter RESEED};
-  \draw[arr] (3.5,-2.1)--(10.5,-2.1) node[midway,above,font=\scriptsize]{DELETE + RESEED};
-  \draw[ret] (10.5,-2.7)--(3.5,-2.7) node[midway,above,font=\scriptsize]{OK};
-  \draw[arr] (0,-3.3)--(3.5,-3.3) node[midway,above,font=\scriptsize]{Lancer F5};
-  \draw[arr] (3.5,-3.9)--(7,-3.9) node[midway,above,font=\scriptsize]{Démarrer Tâche~1};
-  \draw[arr] (7,-4.5)--(10.5,-4.5) node[midway,above,font=\scriptsize]{INSERT dimensions};
-  \draw[ret] (10.5,-5.1)--(7,-5.1) node[midway,above,font=\scriptsize]{1~000 lignes OK};
-  \draw[arr] (7,-5.7)--(7,-5.7) node[right,font=\scriptsize]{Contrainte précédence};
-  \draw[arr] (7,-6.1)--(10.5,-6.1) node[midway,above,font=\scriptsize]{INSERT faits (Lookups)};
-  \draw[ret] (10.5,-6.7)--(7,-6.7) node[midway,above,font=\scriptsize]{1~000 lignes OK};
-  \draw[ret] (7,-7.3)--(3.5,-7.3) node[midway,above,font=\scriptsize]{Statut~: Succès};
-  \draw[ret] (3.5,-7.9)--(0,-7.9) node[midway,above,font=\scriptsize]{Pipeline terminé};
-\end{tikzpicture}
-\caption{Diagramme de séquence --- Exécution du pipeline ETL SSIS (CU-03)~\cite{guide_etl}}
-\label{fig:seq_etl}
-\end{figure}
-
-Ce diagramme modélise les interactions entre le Data Engineer, Visual Studio,
-le package SSIS et SQL~Server lors de l'exécution du pipeline. Il illustre la
-contrainte de précédence critique~: la Tâche~2 ne peut démarrer que si la Tâche~1
-a terminé avec succès (BF-01, BF-10).
-
-\subsubsection{Séquence CU-01 --- Visualisation des KPIs}
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-  obj/.style={rectangle,draw=primary,fill=primary!10,minimum width=2.2cm,
-              minimum height=0.6cm,font=\small\bfseries,align=center},
-  arr/.style={-Stealth,thick,color=primary},
-  ret/.style={-Stealth,thick,color=darkgray,dashed},
-  lif/.style={draw=primary,dashed,thick}
-]
-  \node[obj] (usr) at (0,0) {Utilisateur};
-  \node[obj] (nav) at (3.5,0) {Navigateur};
-  \node[obj] (pbi) at (7,0) {Power BI\\Service};
-  \node[obj] (dwh) at (10.5,0) {SQL Server\\DWH};
-
-  \draw[lif] (0,-0.3)--(0,-7);
-  \draw[lif] (3.5,-0.3)--(3.5,-7);
-  \draw[lif] (7,-0.3)--(7,-7);
-  \draw[lif] (10.5,-0.3)--(10.5,-7);
-
-  \draw[arr] (0,-0.8)--(3.5,-0.8) node[midway,above,font=\scriptsize]{Ouvrir URL dashboard};
-  \draw[arr] (3.5,-1.5)--(7,-1.5) node[midway,above,font=\scriptsize]{Authentification MS};
-  \draw[ret] (7,-2.1)--(3.5,-2.1) node[midway,above,font=\scriptsize]{Token valide};
-  \draw[arr] (7,-2.7)--(10.5,-2.7) node[midway,above,font=\scriptsize]{Query DAX (KPIs)};
-  \draw[ret] (10.5,-3.3)--(7,-3.3) node[midway,above,font=\scriptsize]{Dataset (1~000 lignes)};
-  \draw[arr] (7,-3.9)--(7,-3.9) node[right,font=\scriptsize]{Calcul mesures DAX};
-  \draw[ret] (7,-4.5)--(3.5,-4.5) node[midway,above,font=\scriptsize]{Visuels rendus};
-  \draw[ret] (3.5,-5.1)--(0,-5.1) node[midway,above,font=\scriptsize]{Page~1 affichée};
-  \draw[arr] (0,-5.7)--(3.5,-5.7) node[midway,above,font=\scriptsize]{Appliquer filtre période};
-  \draw[arr] (3.5,-6.3)--(7,-6.3) node[midway,above,font=\scriptsize]{Recalcul DAX filtré};
-  \draw[ret] (7,-6.9)--(0,-6.9) node[midway,above,font=\scriptsize]{Visuels mis à jour};
-\end{tikzpicture}
-\caption{Diagramme de séquence --- Visualisation des KPIs (CU-01)~\cite{cdc_atlas}}
-\label{fig:seq_kpi}
-\end{figure}
-
-\subsection{Diagramme d'activité --- Processus de traitement ETL}
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-  act/.style={rectangle,rounded corners=4pt,draw=primary,fill=primary!10,
-              font=\scriptsize,minimum width=3.5cm,minimum height=0.7cm,align=center},
-  dec/.style={diamond,draw=secondary,fill=secondary!15,font=\scriptsize,
-              minimum width=1.5cm,minimum height=0.7cm,align=center},
-  arr/.style={-Stealth,thick,color=primary}
-]
-  \node[circle,fill=primary,minimum size=0.4cm] (start) at (0,0) {};
-  \node[act] (a1) at (0,-1.2) {Lire fichier CSV (UTF-8)};
-  \node[act] (a2) at (0,-2.2) {Data Conversion (28~colonnes)};
-  \node[act] (a3) at (0,-3.2) {Derived Column (3~calculées)};
-  \node[act] (a4) at (0,-4.2) {Sort (date\_demande)};
-  \node[dec] (d1) at (0,-5.4) {defaut = 1~?};
-  \node[act] (a5) at (-3.5,-6.5) {Flux défaut};
-  \node[act] (a6) at (3.5,-6.5) {Flux sain};
-  \node[act] (a7) at (0,-7.7) {Union All $\to$ Multicast};
-  \node[act] (a8) at (0,-8.7) {INSERT 5~destinations (dim + log)};
-  \node[dec] (d2) at (0,-9.8) {Tâche~1 OK~?};
-  \node[act] (a9) at (3.5,-10.9) {Déclencher Tâche~2};
-  \node[act] (a10)at (0,-12) {4~Lookups $\to$ INSERT fait\_demande\_credit};
-  \node[circle,draw=primary,fill=primary,minimum size=0.4cm] (end) at (0,-13) {};
-
-  \draw[arr] (start)--(a1); \draw[arr] (a1)--(a2); \draw[arr] (a2)--(a3);
-  \draw[arr] (a3)--(a4); \draw[arr] (a4)--(d1);
-  \draw[arr] (d1)--node[left,font=\tiny]{Oui}(a5);
-  \draw[arr] (d1)--node[right,font=\tiny]{Non}(a6);
-  \draw[arr] (a5)--(a7); \draw[arr] (a6)--(a7);
-  \draw[arr] (a7)--(a8); \draw[arr] (a8)--(d2);
-  \draw[arr] (d2)--node[right,font=\tiny]{Oui}(a9);
-  \draw[arr] (a9)--(a10); \draw[arr] (a10)--(end);
-  \node[right=0.3cm of d2,font=\tiny,text=dangercolor] {Non $\to$ Arrêt + log erreur};
-\end{tikzpicture}
-\caption{Diagramme d'activité --- Processus de traitement ETL SSIS~\cite{guide_etl}}
-\label{fig:activity_etl}
-\end{figure}
 
 % -----------------------------------------------------------
 \newpage
@@ -2612,47 +2404,7 @@ a terminé avec succès (BF-01, BF-10).
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[
-  fact/.style={rectangle,draw=secondary,fill=secondary!12,rounded corners=4pt,
-               text width=4.6cm,align=center,font=\small\bfseries,
-               minimum height=3cm,drop shadow},
-  dim/.style={rectangle,draw=primary,fill=primary!10,rounded corners=4pt,
-              text width=3.4cm,align=center,font=\small,minimum height=2.4cm,
-              drop shadow},
-  dt/.style={font=\small\bfseries\color{primary}},
-  fk/.style={-Stealth,thick,color=primary,dashed}
-]
-  \node[fact] (fait) at (0,0) {
-    \textcolor{secondary}{\textbf{fait\_demande\_credit}}\\[4pt]
-    \scriptsize
-    id\_fait (PK)\\id\_client (FK)\\id\_temps (FK)\\
-    id\_credit (FK)\\id\_profil (FK)\\
-    montant\_credit\_dh\\duree\_credit\_mois\\
-    \textbf{defaut (0/1)}
-  };
-  \node[dim] at (-5.5,3) (dc) {
-    {\textbf{\textcolor{primary}{dim\_client}}}\\[3pt]\scriptsize
-    id\_client (PK)\\age\_client\\tranche\_age\\
-    genre / statut\_marital\\niveau\_emploi\\type\_logement
-  };
-  \node[dim] at (5.5,3) (dt) {
-    {\textbf{\textcolor{primary}{dim\_temps}}}\\[3pt]\scriptsize
-    id\_temps (PK)\\date\_demande\\
-    annee / trimestre\\mois / nom\_mois
-  };
-  \node[dim] at (-5.5,-3.5) (dcr) {
-    {\textbf{\textcolor{primary}{dim\_credit}}}\\[3pt]\scriptsize
-    id\_credit (PK)\\objet\_credit\\
-    montant / tranche\\duree\_credit\_mois\\charge\_remboursement
-  };
-  \node[dim] at (5.5,-3.5) (dp) {
-   {\textbf{\textcolor{primary}{dim\_profil\_financier}}}\\[2pt]\scriptsize
-    id\_profil (PK)\\statut\_compte\_bancaire\\
-    niveau\_epargne\\historique\_credit\\type\_propriete
-  };
-  \draw[fk] (dc)--(fait); \draw[fk] (dt)--(fait);
-  \draw[fk] (dcr)--(fait); \draw[fk] (dp)--(fait);
-\end{tikzpicture}
+\includegraphics[width=0.9\textwidth]{figures/schema_etoile.png}
 \caption{Schéma en étoile du Data Warehouse AtlasCreditBank~\cite{cdc_atlas,kimball}}
 \label{fig:schema_etoile}
 \end{figure}
@@ -2675,12 +2427,12 @@ des performances de calcul DAX élevées (BNF-01).
 \rowcolor{primary!12}
 Table & Colonnes principales & Cardinalité & Clé \\
 \midrule
-\texttt{dim\_client} & id\_client, age\_client, tranche\_age, genre, statut\_marital, niveau\_emploi, ancienneté, type\_logement & 1~000 lignes & PK~: id\_client \\
-\texttt{dim\_temps} & id\_temps, date\_demande, annee, trimestre, mois, nom\_mois & 1~000 lignes & PK~: id\_temps \\
-\texttt{dim\_credit} & id\_credit, objet\_credit, montant, tranche\_montant, durée, mensualité, charge\_remboursement & 1~000 lignes & PK~: id\_credit \\
-\texttt{dim\_profil\_financier} & id\_profil, statut\_compte, niveau\_épargne, historique\_credit, type\_propriété & 1~000 lignes & PK~: id\_profil \\
+\texttt{dim\_client}           & id\_client, age\_client, tranche\_age, genre, statut\_marital, niveau\_emploi, ancienneté, type\_logement & 1~000 lignes & PK~: id\_client \\
+\texttt{dim\_temps}            & id\_temps, date\_demande, annee, trimestre, mois, nom\_mois & 1~000 lignes & PK~: id\_temps \\
+\texttt{dim\_credit}           & id\_credit, objet\_credit, montant, tranche\_montant, durée, mensualité, charge\_remboursement & 1~000 lignes & PK~: id\_credit \\
+\texttt{dim\_profil\_financier}& id\_profil, statut\_compte, niveau\_épargne, historique\_credit, type\_propriété & 1~000 lignes & PK~: id\_profil \\
 \texttt{fait\_demande\_credit} & id\_fait, id\_client (FK), id\_temps (FK), id\_credit (FK), id\_profil (FK), montant, durée, mensualité, \textbf{defaut} & 1~000 lignes & PK~: id\_fait~; FK~: 4 \\
-\texttt{log\_defauts} & id\_log, id\_client, date\_demande, montant, categorie\_risque & 300 lignes & PK~: id\_log \\
+\texttt{log\_defauts}          & id\_log, id\_client, date\_demande, montant, categorie\_risque & 300 lignes & PK~: id\_log \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -2697,34 +2449,33 @@ Table & Colonnes principales & Cardinalité & Clé \\
 \rowcolor{primary!12}
 Attribut & Type SQL & Contrainte & Description \\
 \midrule
-id\_fait & INT IDENTITY & PK NOT NULL & Identifiant unique auto-incrémenté \\
-id\_client & NVARCHAR(50) & FK NOT NULL & Référence vers dim\_client \\
-id\_temps & INT & FK NOT NULL & Référence vers dim\_temps \\
-id\_credit & INT & FK NOT NULL & Référence vers dim\_credit \\
-id\_profil & INT & FK NOT NULL & Référence vers dim\_profil\_financier \\
-montant\_credit\_dh & INT & NOT NULL & Montant du crédit en Dirhams \\
-duree\_credit\_mois & INT & NOT NULL & Durée de remboursement en mois \\
-mensualite\_estimee\_dh & INT & NOT NULL & Mensualité = montant / durée \\
-rang\_charge & SMALLINT & NOT NULL & Rang de la charge de remboursement \\
-anciennete\_mediane\_ans & FLOAT & NOT NULL & Ancienneté médiane dans le secteur \\
-\textbf{defaut} & \textbf{SMALLINT} & \textbf{NOT NULL} & \textbf{Variable cible : 0 = bon client, 1 = défaut} \\
+id\_fait                 & INT IDENTITY  & PK NOT NULL & Identifiant unique auto-incrémenté \\
+id\_client               & NVARCHAR(50)  & FK NOT NULL & Référence vers dim\_client \\
+id\_temps                & INT           & FK NOT NULL & Référence vers dim\_temps \\
+id\_credit               & INT           & FK NOT NULL & Référence vers dim\_credit \\
+id\_profil               & INT           & FK NOT NULL & Référence vers dim\_profil\_financier \\
+montant\_credit\_dh      & INT           & NOT NULL    & Montant du crédit en Dirhams \\
+duree\_credit\_mois      & INT           & NOT NULL    & Durée de remboursement en mois \\
+mensualite\_estimee\_dh  & INT           & NOT NULL    & Mensualité = montant / durée \\
+rang\_charge             & SMALLINT      & NOT NULL    & Rang de la charge de remboursement \\
+anciennete\_mediane\_ans & FLOAT         & NOT NULL    & Ancienneté médiane dans le secteur \\
+\textbf{defaut}          & \textbf{SMALLINT} & \textbf{NOT NULL} & \textbf{Variable cible : 0 = bon client, 1 = défaut} \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 % -----------------------------------------------------------
-\section{Maquettes UX/UI et Prototype Design Thinking}
+\section{Maquettes UX/UI}
 % -----------------------------------------------------------
 
-\subsection{Wireframes des interfaces principales}
+\subsection{Structure du dashboard Power~BI}
 
 Le dashboard Power~BI de RiskSight est structuré en 3~pages correspondant à
-3~niveaux d'analyse. Les maquettes ci-dessous décrivent l'organisation visuelle
-de chaque page.
+3~niveaux d'analyse~:
 
 \begin{table}[H]
 \centering
-\caption{Description des maquettes du dashboard Power~BI}
+\caption{Description des pages du dashboard Power~BI}
 \label{tab:maquettes}
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{p{4cm} p{5.5cm} X}
@@ -2732,19 +2483,12 @@ de chaque page.
 \rowcolor{primary!12}
 Page & Composants visuels & Destinataire et objectif \\
 \midrule
-\textbf{Page~1 --- Vue Executive} & 4~cartes KPI (taux défaut, volume DH, nb demandes, montant moyen)~; courbe temporelle 2020--2024~; treemap par objet crédit & Direction générale~: vue d'ensemble du portefeuille \\
-\textbf{Page~2 --- Analyse Risque} & Graphiques en barres (taux défaut par profil, historique, épargne, âge)~; matrice montant × durée & Département risques~: identification des profils à risque \\
-\textbf{Page~3 --- Temporel} & Courbe de saisonnalité mensuelle~; barres par trimestre~; comparaison N / N-1 (DAX PREVIOUSYEAR) & Direction risques et marketing~: tendances et saisonnalité \\
+\textbf{Page~1 --- Vue Executive}   & 4~cartes KPI (taux défaut, volume DH, nb demandes, montant moyen)~; courbe temporelle 2020--2024~; treemap par objet crédit & Direction générale~: vue d'ensemble du portefeuille \\
+\textbf{Page~2 --- Analyse Risque}  & Graphiques en barres (taux défaut par profil, historique, épargne, âge)~; matrice montant × durée & Département risques~: identification des profils à risque \\
+\textbf{Page~3 --- Analyse Temporelle} & Courbe de saisonnalité mensuelle~; barres par trimestre~; comparaison N / N-1 (DAX PREVIOUSYEAR) & Direction risques et marketing~: tendances et saisonnalité \\
 \bottomrule
 \end{tabularx}
 \end{table}
-
-\begin{tcolorbox}[mybox,title={Note sur les captures d'écran du dashboard}]
-Les captures d'écran réelles du dashboard Power~BI (figures~7.x) sont présentées
-dans le Chapitre~7 (Réalisation), après exécution du pipeline SSIS et publication
-sur Power~BI Service. Les maquettes ici décrivent la structure attendue~; les
-captures confirment la conformité de l'implémentation avec la conception.
-\end{tcolorbox}
 
 \subsection{Principes UX retenus}
 
@@ -2765,12 +2509,13 @@ Les trois principes UX qui ont guidé la conception du dashboard~:
 % -----------------------------------------------------------
 
 Ce chapitre a modélisé l'intégralité du système RiskSight avant son implémentation.
-L'architecture N-tiers garantit la séparation des responsabilités~; les 3~cas
-d'utilisation décrits textuellement couvrent les besoins fonctionnels prioritaires~;
-les diagrammes de séquence modélisent les 2~flux les plus complexes~; le schéma
-en étoile et le modèle relationnel fondent la structure de données~; le dictionnaire
-de données garantit la traçabilité de chaque attribut. Le chapitre suivant présente
-la réalisation concrète de cette architecture.
+L'architecture N-tiers garantit la séparation des responsabilités~; le pipeline ETL
+a été réalisé selon deux méthodes complémentaires (SSIS et Power Query) assurant
+la fiabilité des transformations~; les 3~cas d'utilisation couvrent les besoins
+fonctionnels prioritaires~; le schéma en étoile et le modèle relationnel fondent
+la structure de données~; le dictionnaire de données garantit la traçabilité de
+chaque attribut. Le chapitre suivant présente la réalisation concrète de cette
+architecture.
 
 % ============================================================
 %  CHAPITRE 7 — RÉALISATION & IMPLÉMENTATION
