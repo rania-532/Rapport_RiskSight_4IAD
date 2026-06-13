@@ -1107,7 +1107,7 @@ les phases suivantes. Le chapitre suivant formalise le cadrage du projet RiskSig
 %  CHAPITRE 3 — CADRAGE DU PROJET
 % ============================================================
 \chapter{Cadrage du Projet}
-
+\vspace{1cm}
 \section{Introduction}
 
 Ce chapitre formalise et structure le projet RiskSight comme un chef de projet
@@ -1116,6 +1116,7 @@ formel du projet~: tableau de cadrage complet, justification du cycle de vie cho
 étude critique de l'existant et différenciation de la solution proposée. Ces
 éléments constituent le «~contrat de projet~» qui guidera toutes les phases
 suivantes.
+\vspace{1cm}
 
 % -----------------------------------------------------------
 \section{Tableau de Cadrage Complet (Charte Projet)}
@@ -1388,7 +1389,7 @@ Chapitre~5 et la spécification des besoins au Chapitre~4 suivant.
 %  CHAPITRE 4 — SPÉCIFICATION DES BESOINS
 % ============================================================
 \chapter{Spécification des Besoins}
-
+\vspace{1cm}
 \section{Introduction}
 
 Ce chapitre définit précisément ce que le système RiskSight doit faire (besoins
@@ -1396,6 +1397,7 @@ fonctionnels), comment il doit le faire (besoins non fonctionnels) et pour qui
 (profils utilisateurs). Le cadrage du Chapitre~3 ayant défini le périmètre, ce
 chapitre détaille ce qui doit être réalisé à l'intérieur de ce périmètre. La
 spécification des besoins alimente directement la conception du Chapitre~6.
+\vspace{1cm}
 
 % -----------------------------------------------------------
 \section{Identification des Parties Prenantes et Utilisateurs}
@@ -1686,6 +1688,8 @@ mais aussi \textit{comment} elle va travailler pour y parvenir.
 La WBS (Work Breakdown Structure) décompose le projet RiskSight en livrables
 concrets et mesurables, organisés de façon hiérarchique. Chaque nœud de la WBS
 correspond à un livrable réel dont la production peut être vérifiée~\cite{pmbok}.
+
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/wbs_risksight.png}
@@ -1757,76 +1761,9 @@ correspond à un livrable réel dont la production peut être vérifiée~\cite{p
 5.2 & Soutenance orale & Démonstration live du pipeline & Pipeline F5 en direct devant le jury \\
 
 \end{longtable}
-\subsection{Représentation graphique du WBS}
 
-\begin{figure}[H]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[
-  root/.style={rectangle, rounded corners=5pt, draw=primary, fill=primary,
-               text=white, font=\bfseries\small, minimum width=4cm,
-               minimum height=0.85cm, align=center},
-  lvl1/.style={rectangle, rounded corners=4pt, draw=primary, fill=primary!15,
-               font=\small\bfseries\color{primary}, minimum width=2.6cm,
-               minimum height=0.8cm, align=center},
-  lvl2/.style={rectangle, draw=darkgray, fill=lightgray, font=\scriptsize,
-               minimum width=2.3cm, minimum height=0.7cm, align=center},
-  arr/.style={draw=primary, thick}
-]
 
-  %% ROOT
-  \node[root] (r) at (0,0) {RiskSight};
 
-  %% LEVEL 1
-  \node[lvl1] (p1) at (-20, -3.5) {1. Cadrage};
-  \node[lvl1] (p2) at (-11, -3.5) {2. Conception};
-  \node[lvl1] (p3) at (0,   -3.5) {3. Développement};
-  \node[lvl1] (p4) at (12,  -3.5) {4. Tests};
-  \node[lvl1] (p5) at (20,  -3.5) {5. Livrables};
-
-  \draw[arr] (r) -- (p1);
-  \draw[arr] (r) -- (p2);
-  \draw[arr] (r) -- (p3);
-  \draw[arr] (r) -- (p4);
-  \draw[arr] (r) -- (p5);
-
-  %% LEVEL 2 — Cadrage
-  \node[lvl2] (c1) at (-22.5, -6.5) {1.1 Besoins};
-  \node[lvl2] (c2) at (-18,   -6.5) {1.2 CDC};
-  \draw[arr] (p1) -- (c1);
-  \draw[arr] (p1) -- (c2);
-
-  %% LEVEL 2 — Conception
-  \node[lvl2] (d1) at (-13.5, -6.5) {2.1 DWH};
-  \node[lvl2] (d2) at (-9,    -6.5) {2.2 Pipeline};
-  \draw[arr] (p2) -- (d1);
-  \draw[arr] (p2) -- (d2);
-
-  %% LEVEL 2 — Développement
-  \node[lvl2] (e1) at (-6,  -6.5) {3.1 SQL Server};
-  \node[lvl2] (e2) at (-3,  -6.5) {3.2 SSIS T1};
-  \node[lvl2] (e3) at (0,   -6.5) {3.3 SSIS T2};
-  \node[lvl2] (e4) at (3.5, -6.5) {3.4 PBI};
-  \node[lvl2] (e5) at (7,   -6.5) {3.5 PQ};
-  \draw[arr] (p3) -- (e1);
-  \draw[arr] (p3) -- (e2);
-  \draw[arr] (p3) -- (e3);
-  \draw[arr] (p3) -- (e4);
-  \draw[arr] (p3) -- (e5);
-
-  %% LEVEL 2 — Tests
-  \node[lvl2] (t1) at (9.5,  -6.5) {4.1 Tests};
-  \node[lvl2] (t2) at (13,   -6.5) {4.2 Intégr.};
-  \node[lvl2] (t3) at (16.5, -6.5) {4.3 Fonct.};
-  \draw[arr] (p4) -- (t1);
-  \draw[arr] (p4) -- (t2);
-  \draw[arr] (p4) -- (t3);
-
-\end{tikzpicture}%
-}
-\caption{WBS du projet RiskSight~\cite{pmbok,cdc_atlas}}
-\label{fig:wbs}
-\end{figure}
 % -----------------------------------------------------------
 \section{Planification Détaillée et Diagramme de Gantt}
 % -----------------------------------------------------------
@@ -2844,13 +2781,23 @@ log\_defauts & 300 \\
 
 \begin{lstlisting}[language=SQL, caption={Requête de vérification après exécution~\cite{guide_etl}}, label={lst:verif}]
 
-SELECT 'dim_client'            AS table_name, COUNT(*) AS nb_lignes
-  FROM atlas_dwh.dim_client
-UNION ALL SELECT 'dim_temps',            COUNT(*) FROM atlas_dwh.dim_temps
-UNION ALL SELECT 'dim_credit',           COUNT(*) FROM atlas_dwh.dim_credit
-UNION ALL SELECT 'dim_profil_financier', COUNT(*) FROM atlas_dwh.dim_profil_financier
-UNION ALL SELECT 'fait_demande_credit',  COUNT(*) FROM atlas_dwh.fait_demande_credit
-UNION ALL SELECT 'log_defauts',          COUNT(*) FROM atlas_dwh.log_defauts;
+SELECT 'dim_client'      AS table_name, COUNT(*) AS nb_lignes
+FROM atlas_dwh.dim_client
+UNION ALL SELECT 'dim_temps',
+
+COUNT(*) FROM atlas_dwh.dim_temps
+UNION ALL SELECT 'dim_credit',
+
+COUNT(*) FROM atlas_dwh.dim_credit
+UNION ALL SELECT 'dim_profil_financier',
+
+COUNT(*) FROM atlas_dwh.dim_profil_financier
+UNION ALL SELECT 'fait_demande_credit',
+
+COUNT(*) FROM atlas_dwh.fait_demande_credit
+UNION ALL SELECT 'log_defauts',
+          
+COUNT(*) FROM atlas_dwh.log_defauts;
 \end{lstlisting}
 
 \subsection{Bugs identifiés et corrections}
@@ -3168,37 +3115,6 @@ Charges fixes annuelles & --- & 120~000 \\
     &= 3 \times 54\,000 = \mathbf{162\,000 \ \text{DH/an}}
 \end{align}
 
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-\begin{axis}[
-  width=12cm, height=7cm,
-  xlabel={Nombre de clients},
-  ylabel={Montant (DH)},
-  legend pos=north west,
-  grid=both,
-  grid style={line width=0.3pt,draw=lightgray},
-  xmin=0, xmax=20, ymin=-150000, ymax=1100000,
-  xtick={0,2,4,6,8,10,12,14,16,18,20},
-  scaled y ticks=false,
-  yticklabel style={/pgf/number format/fixed,/pgf/number format/precision=0,font=\small},
-  tick label style={font=\small},
-  legend style={font=\small}
-]
-  \addplot[color=dangercolor,thick,dashed,domain=0:20,samples=2] {120000};
-  \addlegendentry{Charges fixes (120\,000 DH)}
-  \addplot[color=successcolor,thick,domain=0:20,samples=2] {54000*x};
-  \addlegendentry{CA (54\,000 DH/client)}
-  \addplot[color=secondary,thick,domain=0:20,samples=2] {120000 + 900*x};
-  \addlegendentry{Coûts totaux}
-  \addplot[color=primary,mark=*,mark size=4pt,only marks]
-    coordinates {(2.26,122260)};
-  \addlegendentry{SR $\approx$ 3 clients}
-\end{axis}
-\end{tikzpicture}
-\caption{Graphique du seuil de rentabilité de RiskSight~\cite{tp3_faisabilite}}
-\label{fig:sr}
-\end{figure}
 
 \begin{tcolorbox}[successbox,title={Verdict de Faisabilité Financière}]
 \textbf{Projet VIABLE --- Feu vert entrepreneurial.}
