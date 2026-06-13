@@ -96,10 +96,10 @@
     ([yshift=1.2cm]current page.south east);
 \end{tikzpicture}
 
-\vspace*{0.5cm}
+\vspace*{1cm}
 
 \begin{flushleft}
-\includegraphics[width=7cm]{figures/emsi_logo}
+\includegraphics[width=6cm]{figures/emsi_logo}
 \end{flushleft}
 
 \vspace*{0.3cm}
@@ -118,20 +118,36 @@
 \end{tcolorbox}
 \vfill
 
-\begin{minipage}{0.40\textwidth}
-  \textbf{R\'ealis\'e par :}\\
-  Rania \textsc{Bikikre}\\
-  Imane \textsc{Nadif}\\
-  Groupe 4IAD-G2
+
+
+
+
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\textbf{Réalisé par:}\\[0.2cm]
+
+Rania \textsc{BIKIKRE}\\
+Imane \textsc{NADIF}\\[0.2cm]
+
+4IAD-G2
 \end{minipage}
 \hfill
-\begin{minipage}{0.40\textwidth}
-  \raggedleft
-  \textbf{Encadrant :}\\
-  {Pr. Mouad BANANE}\\[0.4cm]
-  \textbf{Ann\'ee acad\'emique :}\\
-  2025 -- 2026
+\begin{minipage}[t]{0.45\textwidth}
+\centering
+\textbf{Encadrants:}\\[0.2cm]
+
+Pr. Mouad BANANE\\
+Pr. Dounia MONSIF\\
+Pr. Yousra AIT LARBI
+
 \end{minipage}
+
+\vspace{0.8cm}
+
+\begin{center}
+\textbf{Année académique}\\
+2025--2026
+\end{center}
 
 \vspace{1cm}
 \end{titlepage}
@@ -149,18 +165,17 @@ qui ont contribué, de près ou de loin, à la réalisation de ce projet de
 fin d'année.
 
 Nos remerciements s'adressent en premier lieu à notre encadrant,
-\textbf{Mr. Mouad Banane}, pour sa disponibilité, ses conseils avisés
+\textbf{Pr. Mouad Banane}, pour sa disponibilité, ses conseils avisés
 et son suivi rigoureux tout au long de ce travail. Sa guidance nous a
 permis de structurer notre démarche et d'approfondir notre compréhension
 des enjeux de la Business Intelligence appliquée au risque crédit.
 
 Nous adressons également nos sincères remerciements à
-\textbf{Dr. Yousra Aït Larbi}, professeure d'entrepreneuriat, pour
+\textbf{Pr. Yousra Aït Larbi}, professeure d'entrepreneuriat, pour
 son accompagnement dans la dimension entrepreneuriale de ce projet
 et pour nous avoir encouragés à ancrer notre solution dans une
 réalité de marché concrète.
-
-Nous remercions aussi \textbf{Mme. gestion projet}, professeure de
+\textbf{Pr. gestion projet}, professeure de
 gestion de projet, pour ses enseignements méthodologiques qui nous
 ont permis de structurer et de \newline planifier efficacement les différentes
 phases de ce travail.
@@ -508,8 +523,8 @@ principal de RiskSight.
 \caption{Analyse QQQQCCP du problème}
 \label{tab:qqqqccp}
 \renewcommand{\arraystretch}{1.5}
-\setlength{\tabcolsep}{8pt}
-\begin{tabularx}{\textwidth}{>{\bfseries\RaggedRight}p{2.5cm} >{\RaggedRight}X >{\RaggedRight}p{3cm}}
+\setlength{\tabcolsep}{5pt}
+\begin{tabularx}{\textwidth}{>{\bfseries\RaggedRight}p{2.5cm} >{\RaggedRight}X >{\RaggedRight}p{4cm}}
 \toprule
 \rowcolor{primary!12}
 \textbf{Question} & \textbf{Réponse} & \textbf{Implication pour le projet} \\
@@ -715,7 +730,7 @@ L'ensemble des signaux recueillis converge vers un verdict \textbf{GO}~:
 \caption{Matrice d'adéquation Problème--Solution}
 \label{tab:psf}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{5cm} X}
+\begin{tabularx}{\textwidth}{p{6cm} X}
 \toprule
 \rowcolor{primary!12}
 Frustration / Problème & Réponse de RiskSight \\
@@ -751,7 +766,8 @@ La validation terrain conclut à un verdict GO.
 % ============================================================
 %  CHAPITRE 2 — ANALYSE STRATÉGIQUE & ÉTUDE DE MARCHÉ
 % ============================================================
-\chapter{Analyse Stratégique et Étude de Marché}
+\chapter{Analyse Stratégique et Étude 
+de Marché}
 
 \section{Introduction}
 
@@ -843,7 +859,7 @@ Dimension & Analyse & Impact \\
 \caption{Analyse PESTEL de RiskSight --- Dimensions TEL}
 \label{tab:pestel_tel}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{>{\bfseries}p{3cm} X p{2.8cm}}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{4cm} X p{3cm}}
 \toprule
 \rowcolor{primary!12}
 Dimension & Analyse & Impact \\
@@ -881,8 +897,8 @@ Dimension & Analyse & Impact \\
 \centering
 \caption{Analyse concurrentielle du marché du scoring crédit au Maroc}
 \label{tab:concurrents}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{3cm} X p{2.2cm} p{2.5cm}}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{p{2.5cm} X p{3cm} p{2.5cm}}
 \toprule
 \rowcolor{primary!12}
 Solution & Description & Coût mensuel & Adapté Maroc \\
@@ -892,7 +908,7 @@ SAS Credit Risk & Suite analytique industrielle, nécessite une équipe IT dédi
 Moody's Analytics & Outils de gestion du risque pour banques régionales et grandes institutions & $>$50~000~DH & \textcolor{dangercolor}{Non} \\
 Systèmes internes bancaires & Développés en interne par Attijariwafa, CIH, BMCE --- non commercialisés & N/A & Partiel \\
 Excel manuel & Tableurs et calculs manuels, aucune automatisation & 0~DH & Oui (par défaut) \\
-\textbf{RiskSight} & \textbf{SaaS BI localisé pour microfinances marocaines, pipeline ETL + Power BI} & \textbf{2~000--4~500~DH} & \textbf{\textcolor{successcolor}{Oui}} \\
+\textbf{RiskSight} & \textbf{SaaS BI localisé pour microfinances marocaines, pipeline ETL + Power BI} & \textbf{2000--4~500~DH} & \textbf{\textcolor{successcolor}{Oui}} \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1022,7 +1038,7 @@ $\bullet$ & Délai de vente long dans le secteur bancaire marocain \\
 \caption{Stratégies croisées issues de l'analyse SWOT}
 \label{tab:swot_strategies}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{2.5cm} X}
+\begin{tabularx}{\textwidth}{p{3cm} X}
 \toprule
 \rowcolor{primary!12}
 Stratégie & Description \\
@@ -1113,7 +1129,7 @@ suivantes.
   Nom du projet     & RiskSight --- Plateforme SaaS de Scoring du Risque Crédit \\
   Porteur (MOA)     & EMSI --- École Marocaine des Sciences de l'Ingénieur \\
   Maître d'œuvre    & Rania Bikikre \& Imane Nadif \\
-  Encadrant         & Mr. Mouad Banane \\
+  Encadrants         & Pr. Mouad BANANE \& Pr. Yousra AIT LARBI \& Pr. Dounia MONSIF \\
   Période           & Septembre 2025 --- Juin 2026 \\
   Objectif général  & Concevoir et déployer une architecture BI complète permettant
                       le pilotage automatisé du risque crédit des institutions
@@ -1152,7 +1168,7 @@ suivantes.
 \centering
 \caption{Objectifs SMART du projet RiskSight}
 \label{tab:smart}
-\renewcommand{\arraystretch}{1.4}
+\renewcommand{\arraystretch}{2}
 \setlength{\tabcolsep}{8pt}
 \begin{tabularx}{\textwidth}{>{\columncolor{primary!12}}c >{\RaggedRight}X >{\RaggedRight}X >{\centering\arraybackslash}c}
 \toprule
@@ -1196,9 +1212,9 @@ Documentation technique et rapport PFA & Déploiement sur infrastructure cloud \
 \centering
 \caption{Parties prenantes du projet RiskSight}
 \label{tab:parties_prenantes_cadrage}
-\renewcommand{\arraystretch}{1.4}
+\renewcommand{\arraystretch}{1.7}
 \setlength{\tabcolsep}{8pt}
-\begin{tabularx}{\textwidth}{>{\bfseries\columncolor{primary!12}}p{3cm} >{\RaggedRight}X >{\RaggedRight}p{4cm}}
+\begin{tabularx}{\textwidth}{>{\bfseries\columncolor{primary!12}}p{4cm} >{\RaggedRight}X >{\RaggedRight}p{4cm}}
 \toprule
 \rowcolor{primary!30}
 \textbf{Acteur} & \textbf{Rôle} & \textbf{Dans notre projet} \\
@@ -1206,7 +1222,7 @@ Documentation technique et rapport PFA & Déploiement sur infrastructure cloud \
 Maîtrise d'Ouvrage (MOA) & Propriétaire du projet, définit \newline les objectifs et valide les livrables & EMSI \\
 Maîtrise d'\OE uvre (MOE) & Assure la conception et la réalisation technique & Rania Bikikre \& Imane Nadif \\
 Chef de Projet & Coordonne, gère les risques et le planning & Désigné au sein du binôme \\
-Encadrant & Valide les livrables, jury de \newline soutenance & Mr. Mouad Banane \\
+Encadrants & Valident les livrables, jury de \newline soutenance & Pr. Mouad Banane \& Pr. Dounia Monsif \& Pr. Yousra Ait Larbi \\
 Utilisateur  \newline Final & Utilise la solution au quotidien & Responsable crédit / Directeur Risques \\
 Parties \newline Externes & Fournisseurs d'outils et de données & Bank Al-Maghrib, Microsoft, UCI \\
 \bottomrule
@@ -1221,7 +1237,7 @@ Parties \newline Externes & Fournisseurs d'outils et de données & Bank Al-Maghr
 \label{tab:livrables_cadrage}
 \renewcommand{\arraystretch}{1.4}
 \setlength{\tabcolsep}{8pt}
-\begin{tabularx}{\textwidth}{p{4cm} p{1.5cm} X p{2.5cm}}
+\begin{tabularx}{\textwidth}{p{4cm} p{2cm} X p{2.5cm}}
 \toprule
 \rowcolor{primary!12}
 \textbf{Livrable} & \textbf{Échéance} & \textbf{Critère d'acceptation} & \textbf{Responsable} \\
@@ -1299,7 +1315,7 @@ les risques et permet des ajustements progressifs~:
 \label{tab:existant_critique}
 \renewcommand{\arraystretch}{1.4}
 \setlength{\tabcolsep}{8pt}
-\begin{tabularx}{\textwidth}{>{\RaggedRight}p{2.8cm} >{\RaggedRight}X >{\RaggedRight}p{2.2cm} >{\RaggedRight}X}
+\begin{tabularx}{\textwidth}{>{\RaggedRight}p{2.5cm} >{\RaggedRight}X >{\RaggedRight}p{2.2cm} >{\RaggedRight}X}
 \toprule
 \rowcolor{primary!12}
 \textbf{Solution} & \textbf{Description} & \textbf{Coût mensuel} & \textbf{Limitations pour le marché cible} \\
@@ -1391,14 +1407,14 @@ spécification des besoins alimente directement la conception du Chapitre~6.
 \centering
 \caption{Parties prenantes internes et externes du projet}
 \label{tab:pp_besoins}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{3.5cm} p{2.5cm} X}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{p{3.8cm} p{2cm} X}
 \toprule
 \rowcolor{primary!12}
 Partie prenante & Type & Intérêt dans le projet \\
 \midrule
 Rania Bikikre \& Imane Nadif & Interne & Réalisent le développement technique et la documentation \\
-Mr. Mouad Banane & Interne & Encadre le projet~; valide les livrables~; jury de soutenance \\
+Pr. Mouad Banane \& Pr. Yousra Ait Larbi \& Pr. Dounia Monsif & Interne & Encadre le projet~; valide les livrables~; jury de soutenance \\
 EMSI & Interne & Commanditaire du PFA~; évalue la qualité académique et technique \\
 Responsable crédit & Externe & Utilisateur principal quotidien de la solution \\
 Directeur des risques & Externe & Utilisateur des analyses de risque avancées \\
@@ -1460,8 +1476,8 @@ BF-10 & Tous & Standardiser les données clients en entrée (28~colonnes, UTF-8)
 \centering
 \caption{Priorisation MoSCoW des fonctionnalités de RiskSight}
 \label{tab:moscow}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{2cm} X p{3cm}}
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{p{2cm} X p{2.5cm}}
 \toprule
 \rowcolor{primary!12}
 Priorité & Fonctionnalité & BF associé \\
@@ -1493,8 +1509,8 @@ Priorité & Fonctionnalité & BF associé \\
 \centering
 \caption{Besoins non fonctionnels --- Performance et disponibilité}
 \label{tab:bnf_perf}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{1cm} X p{4cm}}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{p{1.5cm} X p{4cm}}
 \toprule
 \rowcolor{primary!12}
 ID & Besoin non fonctionnel & Critère de mesure \\
@@ -1514,7 +1530,7 @@ BNF-04 & Architecture scalable pour accueillir jusqu'à 100~000~dossiers & Utili
 \caption{Besoins non fonctionnels --- Sécurité et conformité}
 \label{tab:bnf_secu}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{1cm} X p{4cm}}
+\begin{tabularx}{\textwidth}{p{1.5cm} X p{4.5cm}}
 \toprule
 \rowcolor{primary!12}
 ID & Besoin non fonctionnel & Critère de mesure \\
@@ -1534,7 +1550,7 @@ BNF-08 & Conservation des données pendant 5~ans minimum & Politique de sauvegar
 \caption{Besoins non fonctionnels --- Ergonomie et compatibilité}
 \label{tab:bnf_ux}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{1cm} X p{4cm}}
+\begin{tabularx}{\textwidth}{p{1.5cm} X p{4.5cm}}
 \toprule
 \rowcolor{primary!12}
 ID & Besoin non fonctionnel & Critère de mesure \\
@@ -1593,8 +1609,8 @@ gérées via les contraintes de précédence du Control Flow SSIS.
 \centering
 \caption{Matrice de traçabilité Besoins -- Fonctionnalités -- Tests}
 \label{tab:tracabilite}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{1cm} X p{3cm} p{3cm}}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabularx}{\textwidth}{p{1.5cm} X p{4cm} p{4cm}}
 \toprule
 \rowcolor{primary!12}
 BF/BNF & Description & Module / Composant & Test de validation \\
@@ -1671,7 +1687,7 @@ La WBS (Work Breakdown Structure) décompose le projet RiskSight en livrables
 concrets et mesurables, organisés de façon hiérarchique. Chaque nœud de la WBS
 correspond à un livrable réel dont la production peut être vérifiée~\cite{pmbok}.
 
-\begin{longtable}{>{\centering\arraybackslash}p{1.2cm} >{\bfseries\RaggedRight}p{3cm} >{\RaggedRight}p{4cm} >{\RaggedRight}p{3.2cm}}
+\begin{longtable}{>{\centering\arraybackslash}p{1.2cm} >{\bfseries\RaggedRight}p{4cm} >{\RaggedRight}p{4cm} >{\RaggedRight}p{4cm}}
 \caption{WBS de RiskSight --- Décomposition des livrables par phase} \\
 \toprule
 \rowcolor{primary!12}
@@ -1837,12 +1853,16 @@ L & Préparation soutenance & Démo live et présentation & K & 2 & Binôme \\
 \end{tabularx}
 \end{table}
 
-\subsection{Diagramme de Gantt}
+
 \subsection{Diagramme de Gantt}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{figures/gantt}
+ 
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/gantt}
   \caption{Diagramme de Gantt prévisionnel du projet RiskSight~\cite{cdc_atlas,cours_gp}}
+
+
+
   \label{fig:gantt}
 \end{figure}
 
@@ -2053,8 +2073,8 @@ Soutenance orale &
 \centering
 \caption{Registre des risques du projet RiskSight}
 \label{tab:risques}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{0.7cm} p{3.8cm} p{1.5cm} p{1.5cm} p{1.2cm} X}
+\renewcommand{\arraystretch}{1}
+\begin{tabularx}{\textwidth}{p{0.7cm} p{3.5cm} p{1.2cm} p{1.2cm} p{1.2cm} X}
 \toprule
 \rowcolor{primary!12}
 Code & Risque & Proba (1--5) & Impact (1--5) & Score P$\times$I & Plan de mitigation \\
@@ -2118,7 +2138,7 @@ prioritaires sur lesquels concentrer les actions préventives~\cite{cours_gp}.
 \caption{Analyse Pareto des risques RiskSight (triés par score décroissant)}
 \label{tab:pareto}
 \renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{p{0.7cm} X p{1.5cm} p{2cm} p{2.5cm}}
+\begin{tabularx}{\textwidth}{p{0.7cm} X p{1.5cm} p{2cm} p{3cm}}
 \toprule
 \rowcolor{primary!12}
 Code & Risque & Score P$\times$I & \% cumulé & Statut Pareto \\
@@ -2153,7 +2173,7 @@ l'exposition globale du projet~\cite{cours_gp}.
 \caption{Plans de mitigation et de contingence pour les risques prioritaires}
 \label{tab:mitigation}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{0.7cm} X p{3.5cm} p{3.5cm}}
+\begin{tabularx}{\textwidth}{p{0.7cm} X p{5cm} p{5cm}}
 \toprule
 \rowcolor{primary!12}
 Code & Risque & Plan de mitigation (préventif) & Plan de contingence (curatif) \\
@@ -2199,8 +2219,8 @@ Qualité & Fichier recette Excel & Tableau de tests~: cas / attendu / réel / st
 \centering
 \caption{KPIs techniques et managériaux du projet RiskSight}
 \label{tab:kpis}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{2cm} X p{3.5cm} p{2cm}}
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{p{3cm} X p{3cm} p{3cm}}
 \toprule
 \rowcolor{primary!12}
 Type & KPI & Valeur cible & Vérification \\
@@ -2436,7 +2456,7 @@ Couverture & BF-02, BF-03, BF-04, BF-05 (voir §4.2) \\
 \centering
 \caption{Description du CU-03 --- Exécuter le pipeline ETL}
 \label{tab:cu03}
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arraystretch}{1.8}
 \begin{tabularx}{\textwidth}{p{3.5cm} X}
 \toprule
 \rowcolor{primary!12}
@@ -2626,7 +2646,7 @@ a terminé avec succès (BF-01, BF-10).
     montant / tranche\\duree\_credit\_mois\\charge\_remboursement
   };
   \node[dim] at (5.5,-3.5) (dp) {
-   {\textbf{\textcolor{primary}{dim\_profil\_financier}}}\\[3pt]\scriptsize
+   {\textbf{\textcolor{primary}{dim\_profil\_financier}}}\\[2pt]\scriptsize
     id\_profil (PK)\\statut\_compte\_bancaire\\
     niveau\_epargne\\historique\_credit\\type\_propriete
   };
@@ -2649,8 +2669,8 @@ des performances de calcul DAX élevées (BNF-01).
 \centering
 \caption{Modèle relationnel du Data Warehouse AtlasCreditBank}
 \label{tab:relationnel}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{p{4.5cm} X p{2cm} p{2.5cm}}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabularx}{\textwidth}{p{4.5cm} X p{1.5cm} p{2cm}}
 \toprule
 \rowcolor{primary!12}
 Table & Colonnes principales & Cardinalité & Clé \\
@@ -2671,8 +2691,8 @@ Table & Colonnes principales & Cardinalité & Clé \\
 \centering
 \caption{Dictionnaire de données --- Table \texttt{fait\_demande\_credit}}
 \label{tab:dico}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{p{4cm} p{3cm} p{2cm} X}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabularx}{\textwidth}{p{4.5cm} p{2.9cm} p{2cm} X}
 \toprule
 \rowcolor{primary!12}
 Attribut & Type SQL & Contrainte & Description \\
@@ -2707,7 +2727,7 @@ de chaque page.
 \caption{Description des maquettes du dashboard Power~BI}
 \label{tab:maquettes}
 \renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\textwidth}{p{3.5cm} p{4cm} X}
+\begin{tabularx}{\textwidth}{p{4cm} p{5.5cm} X}
 \toprule
 \rowcolor{primary!12}
 Page & Composants visuels & Destinataire et objectif \\
@@ -2820,6 +2840,8 @@ conformes au modèle relationnel défini au Chapitre~6.
 \label{fig:ssms_tables}
 \end{figure}
 
+
+\newpage
 \begin{lstlisting}[language=SQL, caption={Script de création du schéma et des 6~tables~\cite{guide_etl}},
   label={lst:create_tables}]
 CREATE SCHEMA atlas_dwh;
@@ -2833,8 +2855,10 @@ CREATE TABLE atlas_dwh.dim_temps (
     mois          SMALLINT     NOT NULL,
     nom_mois      NVARCHAR(20) NOT NULL
 );
--- [les autres tables : dim_client, dim_credit, dim_profil_financier,
---  fait_demande_credit, log_defauts -- voir Annexe A pour le script complet]
+-- les autres tables : dim_client, dim_credit, dim_profil_financier,
+--  fait_demande_credit, log_defauts
+
+-- voir Annexe A pour le script complet]
 \end{lstlisting}
 
 \subsection{Sprint 3--4 --- Pipeline SSIS}
@@ -2885,7 +2909,7 @@ exécution~\cite{guide_etl}.
 \caption{Configuration des 4~Lookups de la Tâche~2~\cite{guide_etl}}
 \label{tab:lookups}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{4cm} p{5cm} X}
+\begin{tabularx}{\textwidth}{p{4cm} p{6cm} X}
 \toprule
 \rowcolor{primary!12}
 Lookup & Table de référence & Colonne récupérée \\
@@ -3036,7 +3060,7 @@ CT-08 & Non fonctionnel & Vérifier l'accès via URL depuis un navigateur extern
 \caption{Résultats des tests de validation}
 \label{tab:resultats_tests}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{0.7cm} X p{3.5cm} p{3cm} p{1.5cm}}
+\begin{tabularx}{\textwidth}{p{1.5cm} X p{3cm} p{2cm} p{2cm}}
 \toprule
 \rowcolor{primary!12}
 CT & Cas de test & Résultat attendu & Résultat réel & Statut \\
@@ -3074,6 +3098,7 @@ log\_defauts & 300 \\
 \end{table}
 
 \begin{lstlisting}[language=SQL, caption={Requête de vérification après exécution~\cite{guide_etl}}, label={lst:verif}]
+
 SELECT 'dim_client'            AS table_name, COUNT(*) AS nb_lignes
   FROM atlas_dwh.dim_client
 UNION ALL SELECT 'dim_temps',            COUNT(*) FROM atlas_dwh.dim_temps
@@ -3090,7 +3115,7 @@ UNION ALL SELECT 'log_defauts',          COUNT(*) FROM atlas_dwh.log_defauts;
 \caption{Erreurs rencontrées et solutions apportées~\cite{guide_etl}}
 \label{tab:bugs}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{5cm} p{4cm} X}
+\begin{tabularx}{\textwidth}{p{4cm} p{5cm} X}
 \toprule
 \rowcolor{primary!12}
 Erreur & Cause & Solution appliquée \\
@@ -3117,7 +3142,7 @@ marocaines~\cite{prototype_slides}~:
 \caption{Retours utilisateurs et améliorations apportées}
 \label{tab:feedback}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{p{5cm} X p{3.5cm}}
+\begin{tabularx}{\textwidth}{p{4cm} X p{4cm}}
 \toprule
 \rowcolor{primary!12}
 Retour utilisateur & Interprétation & Amélioration apportée \\
@@ -3166,8 +3191,8 @@ les aspects juridiques et réglementaires, et la roadmap produit V1$\to$V2$\to$V
 \centering
 \caption{BMC de RiskSight --- Blocs 1 à 3}
 \label{tab:bmc_123}
-\renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\textwidth}{p{3cm} X}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabularx}{\textwidth}{p{3.5cm} X}
 \toprule
 \rowcolor{primary!12}
 Bloc BMC & Contenu \\
@@ -3226,7 +3251,7 @@ Bloc BMC & Contenu \\
 \caption{BMC de RiskSight --- Blocs 6 à 9}
 \label{tab:bmc_6789}
 \renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\textwidth}{p{3cm} X}
+\begin{tabularx}{\textwidth}{p{4cm} X}
 \toprule
 \rowcolor{primary!12}
 Bloc BMC & Contenu \\
@@ -3269,7 +3294,7 @@ Bloc BMC & Contenu \\
 \caption{Ressources matérielles du projet RiskSight}
 \label{tab:materiel}
 \renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{X p{3.5cm} p{2cm} p{2cm}}
+\begin{tabularx}{\textwidth}{X p{4.5cm} p{2cm} p{2cm}}
 \toprule
 \rowcolor{primary!12}
 Matériel & Justification & Quantité & Coût (DH) \\
@@ -3292,7 +3317,7 @@ Connexion Internet haut débit & Publication Power~BI Service & 1~abonnement & 2
 \caption{Ressources humaines valorisées au tarif marché marocain}
 \label{tab:rh}
 \renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\textwidth}{p{4cm} X p{2.5cm} p{1.8cm} p{2cm}}
+\begin{tabularx}{\textwidth}{p{4cm} X p{1.5cm} p{1.8cm} p{2cm}}
 \toprule
 \rowcolor{primary!12}
 Profil & Missions & Quantité & Coût/j (DH) & Total (DH) \\
@@ -3366,7 +3391,7 @@ Publicité LinkedIn (B2B ciblée) & 1~campagne semestrielle & 1~500 \\
 \centering
 \caption{Compte de résultat prévisionnel Year~1 --- RiskSight~\cite{tp3_faisabilite}}
 \label{tab:cdr}
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arraystretch}{1.8}
 \begin{tabularx}{\textwidth}{X p{4.9cm} p{3cm}}
 \toprule
 \rowcolor{primary!12}
@@ -3549,7 +3574,7 @@ et Commerciale) sera effectuée avant toute commercialisation.
 \caption{Roadmap produit RiskSight --- V1 à V3}
 \label{tab:roadmap}
 \renewcommand{\arraystretch}{1.5}
-\begin{tabularx}{\textwidth}{p{2cm} p{3cm} X p{3cm}}
+\begin{tabularx}{\textwidth}{p{1.5cm} p{2.5cm} X p{2.5cm}}
 \toprule
 \rowcolor{primary!12}
 Version & Nom & Fonctionnalités & Timeline \\
